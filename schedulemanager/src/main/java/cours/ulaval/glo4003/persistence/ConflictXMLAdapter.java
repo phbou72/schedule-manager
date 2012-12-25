@@ -12,26 +12,24 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.UnavailableTeacher
 public class ConflictXMLAdapter extends XmlAdapter<Conflict, Conflict> {
 
 	@Override
-	public Conflict marshal(Conflict conflict)
-			throws Exception {
+	public Conflict marshal(Conflict conflict) throws Exception {
 		return conflict;
 	}
 
 	@Override
-	public Conflict unmarshal(Conflict conflict)
-			throws Exception {
+	public Conflict unmarshal(Conflict conflict) throws Exception {
 		if (conflict.getScore() == ConcomittingCoursesConflict.SCORE || conflict.getScore() == UnavailableTeacherConflict.SCORE) {
 			if (conflict.getTeacher() != null && !conflict.getTeacher().isEmpty()) {
 				return new UnavailableTeacherConflict(conflict.getFirstNrc(), conflict.getTeacher(), conflict.getFirstTimeSlot());
 			} else {
-				return new ConcomittingCoursesConflict(conflict.getFirstNrc(), conflict.getSecondNrc(),
-						conflict.getFirstTimeSlot(), conflict.getSecondTimeSlot());
+				return new ConcomittingCoursesConflict(conflict.getFirstNrc(), conflict.getSecondNrc(), conflict.getFirstTimeSlot(),
+						conflict.getSecondTimeSlot());
 			}
 		}
 		if (conflict.getScore() == SameLevelCourseConflict.SCORE || conflict.getScore() == SameTeacherConflict.SCORE) {
 			if (conflict.getTeacher() != null && !conflict.getTeacher().isEmpty()) {
-				return new SameTeacherConflict(conflict.getFirstNrc(), conflict.getSecondNrc(), conflict.getTeacher(),
-						conflict.getFirstTimeSlot(), conflict.getSecondTimeSlot());
+				return new SameTeacherConflict(conflict.getFirstNrc(), conflict.getSecondNrc(), conflict.getTeacher(), conflict.getFirstTimeSlot(),
+						conflict.getSecondTimeSlot());
 
 			} else {
 				return new SameLevelCourseConflict(conflict.getFirstNrc(), conflict.getSecondNrc(), conflict.getFirstTimeSlot(),
@@ -43,5 +41,5 @@ public class ConflictXMLAdapter extends XmlAdapter<Conflict, Conflict> {
 		}
 		return conflict;
 	}
-	
+
 }

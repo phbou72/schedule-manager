@@ -15,8 +15,7 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.UnavailableTeacher
 public class ConflictXMLAdapterTest {
 
 	@Test
-	public void canAdaptConflictToConcomittingCourseConflict()
-			throws Exception {
+	public void canAdaptConflictToConcomittingCourseConflict() throws Exception {
 		Conflict conflict = new Conflict("nrc1", "nrc2", "", new TimeSlot(), new TimeSlot());
 		conflict.setScore(ConcomittingCoursesConflict.SCORE);
 
@@ -28,8 +27,7 @@ public class ConflictXMLAdapterTest {
 	}
 
 	@Test
-	public void canAdaptConflictToSameLevelCourseConflict()
-			throws Exception {
+	public void canAdaptConflictToSameLevelCourseConflict() throws Exception {
 		Conflict conflict = new Conflict("nrc1", "nrc2", "", new TimeSlot(), new TimeSlot());
 		conflict.setScore(SameLevelCourseConflict.SCORE);
 
@@ -41,8 +39,7 @@ public class ConflictXMLAdapterTest {
 	}
 
 	@Test
-	public void canAdaptConflictToDisponibilityConflict()
-			throws Exception {
+	public void canAdaptConflictToDisponibilityConflict() throws Exception {
 		Conflict conflict = new Conflict("nrc1", "", "teacher", new TimeSlot(), new TimeSlot());
 		conflict.setScore(DisponibilityConflict.SCORE);
 
@@ -54,8 +51,7 @@ public class ConflictXMLAdapterTest {
 	}
 
 	@Test
-	public void canAdaptConflictToUnavailableTeacherConflict()
-			throws Exception {
+	public void canAdaptConflictToUnavailableTeacherConflict() throws Exception {
 		Conflict conflict = new Conflict("nrc1", "", "teacher", new TimeSlot(), new TimeSlot());
 		conflict.setScore(UnavailableTeacherConflict.SCORE);
 
@@ -67,8 +63,7 @@ public class ConflictXMLAdapterTest {
 	}
 
 	@Test
-	public void canAdaptConflictToSameTeacherConflict()
-			throws Exception {
+	public void canAdaptConflictToSameTeacherConflict() throws Exception {
 		Conflict conflict = new Conflict("nrc1", "", "teacher", new TimeSlot(), new TimeSlot());
 		conflict.setScore(SameTeacherConflict.SCORE);
 

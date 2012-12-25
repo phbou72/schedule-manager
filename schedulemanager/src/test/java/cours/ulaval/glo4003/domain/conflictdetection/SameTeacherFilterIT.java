@@ -30,24 +30,19 @@ public class SameTeacherFilterIT extends ITTestBase {
 	private Filter nextFilterMock;
 
 	@Before
-	public void setup()
-			throws Exception {
-		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)),
-				null);
-		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)),
-				null);
-		glo2000Section = new Section("09088", "A", "a responsable person", Arrays.asList("teacher2"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-2000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)),
-				null);
+	public void setup() throws Exception {
+		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
+		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
+		glo2000Section = new Section("09088", "A", "a responsable person", Arrays.asList("teacher2"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-2000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 
 		nextFilterMock = mock(Filter.class);
 	}
 
 	@Test
-	public void shouldDetectConflictWhenSectionsHaveSameTeachers()
-			throws Exception {
+	public void shouldDetectConflictWhenSectionsHaveSameTeachers() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 		schedule.add(glo1010Section);
@@ -64,8 +59,7 @@ public class SameTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenSectionsHaveDifferentTeachers()
-			throws Exception {
+	public void shouldNotDetectConflictWhenSectionsHaveDifferentTeachers() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 		schedule.add(glo2000Section);
@@ -80,8 +74,7 @@ public class SameTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConflictWhenSectionsHaveSameTeachersForSection()
-			throws Exception {
+	public void shouldDetectConflictWhenSectionsHaveSameTeachersForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 
@@ -97,8 +90,7 @@ public class SameTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenSectionsHaveDifferentTeachersForSection()
-			throws Exception {
+	public void shouldNotDetectConflictWhenSectionsHaveDifferentTeachersForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 

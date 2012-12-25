@@ -34,6 +34,7 @@ public class TimeSlot {
 		endTime.addHours(duration);
 	}
 
+	@Override
 	public TimeSlot clone() {
 		TimeSlot clonedTimeSlot = new TimeSlot();
 		clonedTimeSlot.setDayOfWeek(dayOfWeek);

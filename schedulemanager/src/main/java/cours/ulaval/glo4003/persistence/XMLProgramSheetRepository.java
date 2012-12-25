@@ -15,10 +15,12 @@ public class XMLProgramSheetRepository implements ProgramSheetRepository {
 		parseXML();
 	}
 
+	@Override
 	public ProgramSheet getProgramSheetGLO() {
 		return programSheetGLO;
 	}
 
+	@Override
 	public ProgramSheet getProgramSheetIFT() {
 		return programSheetIFT;
 	}

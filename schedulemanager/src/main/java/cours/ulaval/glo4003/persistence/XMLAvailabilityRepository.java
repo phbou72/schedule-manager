@@ -14,8 +14,7 @@ public class XMLAvailabilityRepository implements AvailabilityRepository {
 	private XMLSerializer<AvailabilityXMLWrapper> serializer;
 	private Map<String, Availability> availabilities = new HashMap<String, Availability>();
 
-	public XMLAvailabilityRepository()
-			throws Exception {
+	public XMLAvailabilityRepository() throws Exception {
 		serializer = new XMLSerializer<AvailabilityXMLWrapper>(AvailabilityXMLWrapper.class);
 		parseXML();
 	}
@@ -26,30 +25,26 @@ public class XMLAvailabilityRepository implements AvailabilityRepository {
 	}
 
 	@Override
-	public void store(Availability availability)
-			throws Exception {
+	public void store(Availability availability) throws Exception {
 		this.availabilities.put(availability.getIdul(), availability);
 		saveXML();
 	}
 
 	@Override
-	public void clear()
-			throws Exception {
+	public void clear() throws Exception {
 		availabilities = new HashMap<String, Availability>();
 		saveXML();
 	}
 
-	public void parseXML()
-			throws Exception {
-		List<Availability> deserializedAvailabilities = serializer.deserialize(
-				ConfigManager.getConfigManager().getAvailabilitiesFilePath()).getAvailabilities();
+	public void parseXML() throws Exception {
+		List<Availability> deserializedAvailabilities = serializer.deserialize(ConfigManager.getConfigManager().getAvailabilitiesFilePath())
+				.getAvailabilities();
 		for (Availability availability : deserializedAvailabilities) {
 			availabilities.put(availability.getIdul(), availability);
 		}
 	}
 
-	private void saveXML()
-			throws Exception {
+	private void saveXML() throws Exception {
 		AvailabilityXMLWrapper availabilityDTO = new AvailabilityXMLWrapper();
 		availabilityDTO.setAvailabilities(new ArrayList<Availability>(availabilities.values()));
 		serializer.serialize(availabilityDTO, ConfigManager.getConfigManager().getAvailabilitiesFilePath());

@@ -52,8 +52,8 @@ public class CourseLevelFilter extends Filter {
 		for (TimeSlot sectionTimeSlots : section.getCoursesAndLabTimeSlots()) {
 			for (TimeSlot otherSectionTimeSlots : otherSection.getCoursesAndLabTimeSlots()) {
 				if (sectionTimeSlots.isOverlapping(otherSectionTimeSlots)) {
-					SameLevelCourseConflict conflict = new SameLevelCourseConflict(section.getNrc(), otherSection.getNrc(),
-							sectionTimeSlots, otherSectionTimeSlots);
+					SameLevelCourseConflict conflict = new SameLevelCourseConflict(section.getNrc(), otherSection.getNrc(), sectionTimeSlots,
+							otherSectionTimeSlots);
 					conflicts.add(conflict);
 				}
 			}

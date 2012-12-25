@@ -50,8 +50,8 @@ public class SameTeacherFilter extends Filter {
 		for (TimeSlot sectionTimeSlots : section.getCoursesAndLabTimeSlots()) {
 			for (TimeSlot otherSectionTimeSlots : otherSection.getCoursesAndLabTimeSlots()) {
 				if (sectionTimeSlots.isOverlapping(otherSectionTimeSlots)) {
-					SameTeacherConflict conflict = new SameTeacherConflict(section.getNrc(), otherSection.getNrc(), teacher,
-							sectionTimeSlots, otherSectionTimeSlots);
+					SameTeacherConflict conflict = new SameTeacherConflict(section.getNrc(), otherSection.getNrc(), teacher, sectionTimeSlots,
+							otherSectionTimeSlots);
 					conflicts.add(conflict);
 				}
 			}

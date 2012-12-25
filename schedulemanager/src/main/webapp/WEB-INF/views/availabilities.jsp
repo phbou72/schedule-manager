@@ -1,32 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Schedule Manager</title>
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/bootstrap.css" />">
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />">
 <link rel="stylesheet" href="<c:url value="/resources/css/app.css" />">
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/availibilities.css" />">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-	
+<link rel="stylesheet" href="<c:url value="/resources/css/availibilities.css" />">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
 <script type="text/javascript">
 	var json = ${availabilitiesJSON};
 </script>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/availabilities.js" />" /></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap.js" />" /></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/availabilities.js" />" /></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" /></script>
 
 </head>
 <body>
@@ -46,7 +38,7 @@
 		<div class="row-fluid">
 			<div class="span2">
 				<h3>Lundi</h3>
-				<ol class="well centered selectable" style="display:block;">
+				<ol class="well centered selectable" style="display: block;">
 					<li id="mon8-1" class="ui-widget-content">08:30</li>
 					<li id="mon9-1" class="ui-widget-content">09:30</li>
 					<li id="mon10-1" class="ui-widget-content">10:30</li>
@@ -61,7 +53,7 @@
 					<li id="mon19-1" class="ui-widget-content">19:30</li>
 					<li id="mon20-1" class="ui-widget-content">20:30</li>
 				</ol>
-				<ol class="well centered selectable2" style="display:none;">
+				<ol class="well centered selectable2" style="display: none;">
 					<li id="mon8-2" class="ui-widget-content">08:30</li>
 					<li id="mon9-2" class="ui-widget-content">09:30</li>
 					<li id="mon10-2" class="ui-widget-content">10:30</li>
@@ -79,7 +71,7 @@
 			</div>
 			<div class="span2">
 				<h3>Mardi</h3>
-				<ol class="well centered selectable" style="display:block;">
+				<ol class="well centered selectable" style="display: block;">
 					<li id="tue8-1" class="ui-widget-content">08:30</li>
 					<li id="tue9-1" class="ui-widget-content">09:30</li>
 					<li id="tue10-1" class="ui-widget-content">10:30</li>
@@ -94,7 +86,7 @@
 					<li id="tue19-1" class="ui-widget-content">19:30</li>
 					<li id="tue20-1" class="ui-widget-content">20:30</li>
 				</ol>
-				<ol class="well centered selectable2" style="display:none;">
+				<ol class="well centered selectable2" style="display: none;">
 					<li id="tue8-2" class="ui-widget-content">08:30</li>
 					<li id="tue9-2" class="ui-widget-content">09:30</li>
 					<li id="tue10-2" class="ui-widget-content">10:30</li>
@@ -112,7 +104,7 @@
 			</div>
 			<div class="span2">
 				<h3>Mercredi</h3>
-				<ol class="well centered selectable" style="display:block;">
+				<ol class="well centered selectable" style="display: block;">
 					<li id="wed8-1" class="ui-widget-content">08:30</li>
 					<li id="wed9-1" class="ui-widget-content">09:30</li>
 					<li id="wed10-1" class="ui-widget-content">10:30</li>
@@ -127,7 +119,7 @@
 					<li id="wed19-1" class="ui-widget-content">19:30</li>
 					<li id="wed20-1" class="ui-widget-content">20:30</li>
 				</ol>
-				<ol class="well centered selectable2" style="display:none;">
+				<ol class="well centered selectable2" style="display: none;">
 					<li id="wed8-2" class="ui-widget-content">08:30</li>
 					<li id="wed9-2" class="ui-widget-content">09:30</li>
 					<li id="wed10-2" class="ui-widget-content">10:30</li>
@@ -145,7 +137,7 @@
 			</div>
 			<div class="span2">
 				<h3>Jeudi</h3>
-				<ol class="well centered selectable" style="display:block;">
+				<ol class="well centered selectable" style="display: block;">
 					<li id="thu8-1" class="ui-widget-content">08:30</li>
 					<li id="thu9-1" class="ui-widget-content">09:30</li>
 					<li id="thu10-1" class="ui-widget-content">10:30</li>
@@ -159,8 +151,8 @@
 					<li id="thu18-1" class="ui-widget-content">18:30</li>
 					<li id="thu19-1" class="ui-widget-content">19:30</li>
 					<li id="thu20-1" class="ui-widget-content">20:30</li>
-				</ol>				
-				<ol class="well centered selectable2" style="display:none;">
+				</ol>
+				<ol class="well centered selectable2" style="display: none;">
 					<li id="thu8-2" class="ui-widget-content">08:30</li>
 					<li id="thu9-2" class="ui-widget-content">09:30</li>
 					<li id="thu10-2" class="ui-widget-content">10:30</li>
@@ -178,7 +170,7 @@
 			</div>
 			<div class="span2">
 				<h3>Vendredi</h3>
-				<ol class="well centered selectable" style="display:block;">
+				<ol class="well centered selectable" style="display: block;">
 					<li id="fri8-1" class="ui-widget-content">08:30</li>
 					<li id="fri9-1" class="ui-widget-content">09:30</li>
 					<li id="fri10-1" class="ui-widget-content">10:30</li>
@@ -193,7 +185,7 @@
 					<li id="fri19-1" class="ui-widget-content">19:30</li>
 					<li id="fri20-1" class="ui-widget-content">20:30</li>
 				</ol>
-				<ol class="well centered selectable2" style="display:none;">
+				<ol class="well centered selectable2" style="display: none;">
 					<li id="fri8-2" class="ui-widget-content">08:30</li>
 					<li id="fri9-2" class="ui-widget-content">09:30</li>
 					<li id="fri10-2" class="ui-widget-content">10:30</li>
@@ -207,14 +199,13 @@
 					<li id="fri18-2" class="ui-widget-content">18:30</li>
 					<li id="fri19-2" class="ui-widget-content">19:30</li>
 					<li id="fri20-2" class="ui-widget-content">20:30</li>
-					</ol>
+				</ol>
 			</div>
 		</div>
 		<br /> <br />
 		<div class="row-fluid">
 			<div class="span12">
-				<button class="btn btn-primary" id="submit">Enregistrer mes
-					disponibilités</button>
+				<button class="btn btn-primary" id="submit">Enregistrer mes disponibilités</button>
 			</div>
 		</div>
 	</div>

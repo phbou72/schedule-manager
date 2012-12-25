@@ -7,9 +7,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/schedulemanager"> <img
-					src="<c:url value="/resources/img/logo_mini.png" />" />
-					ScheduleManager
+				<a class="brand" href="/schedulemanager"> <img src="<c:url value="/resources/img/logo_mini.png" />" /> ScheduleManager
 				</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
@@ -31,19 +29,15 @@
 					<c:url var="profileUrl" value="/profile/${user.idul}"></c:url>
 					<c:if test="${not empty user.idul}">
 						<div class="floatRight">
-							<a class="btn btn-info profil" href="${profileUrl}"><b>Modifier
-									mon profil</b></a>
+							<a class="btn btn-info profil" href="${profileUrl}"><b>Modifier mon profil</b></a>
 						</div>
 						<div class="btn-group floatRight">
-							<a class="btn btn-inverse"> <i class="icon-user icon-white"></i><b
-								class="username">${user.idul}</b>
-							</a> <a class="btn btn-inverse" href="<c:url value="/logout" />">
-								<i class="icon-remove icon-white"></i>
+							<a class="btn btn-inverse"> <i class="icon-user icon-white"></i><b class="username">${user.idul}</b>
+							</a> <a class="btn btn-inverse" href="<c:url value="/logout" />"> <i class="icon-remove icon-white"></i>
 							</a>
-						</div>				
+						</div>
 						<div class="btn-group floatRight">
-							<a id="notificationBtn" class="btn btn-inverse disabled">
-								<i class="icon-comment"></i>
+							<a id="notificationBtn" class="btn btn-inverse disabled"> <i class="icon-comment"></i>
 							</a>
 						</div>
 					</c:if>

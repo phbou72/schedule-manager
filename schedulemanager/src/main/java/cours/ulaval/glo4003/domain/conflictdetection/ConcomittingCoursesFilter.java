@@ -52,8 +52,8 @@ public class ConcomittingCoursesFilter extends Filter {
 		for (TimeSlot sectionTimeSlots : section.getCoursesAndLabTimeSlots()) {
 			for (TimeSlot otherSectionTimeSlots : otherSection.getCoursesAndLabTimeSlots()) {
 				if (sectionTimeSlots.isOverlapping(otherSectionTimeSlots)) {
-					ConcomittingCoursesConflict conflict = new ConcomittingCoursesConflict(section.getNrc(),
-							otherSection.getNrc(), sectionTimeSlots, otherSectionTimeSlots);
+					ConcomittingCoursesConflict conflict = new ConcomittingCoursesConflict(section.getNrc(), otherSection.getNrc(), sectionTimeSlots,
+							otherSectionTimeSlots);
 					conflicts.add(conflict);
 				}
 			}

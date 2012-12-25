@@ -23,8 +23,7 @@ public class AvailabilityTest {
 	private Availability availabilities;
 
 	@Before
-	public void setUp()
-			throws Exception {
+	public void setUp() throws Exception {
 		availabilityModel = mapper.readValue(JSON_STRING, AvailabilityModel.class);
 		availabilities = availabilityModel.toAvailability(A_IDUL);
 	}

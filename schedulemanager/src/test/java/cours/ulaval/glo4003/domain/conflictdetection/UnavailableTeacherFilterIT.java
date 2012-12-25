@@ -45,8 +45,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	private UnavailableTeacherFilter filter;
 
 	@BeforeClass
-	public static void setupClass()
-			throws Exception {
+	public static void setupClass() throws Exception {
 		availabilityModel = mapper.readValue(JSON_STRING, AvailabilityModel.class);
 		availabilities = availabilityModel.toAvailability(A_IDUL);
 
@@ -55,18 +54,14 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Before
-	public void setup()
-			throws Exception {
+	public void setup() throws Exception {
 
-		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)),
-				null);
-		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.TUESDAY)),
-				null);
-		glo2000Section = new Section("09088", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse,
-				new TimeDedicated(), "GLO-2000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.THURSDAY)),
-				null);
+		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
+		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.TUESDAY)), null);
+		glo2000Section = new Section("09088", "A", "a responsable person", Arrays.asList("teacher1"), TeachMode.InCourse, new TimeDedicated(),
+				"GLO-2000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.THURSDAY)), null);
 
 		nextFilterMock = mock(Filter.class);
 		filter = new UnavailableTeacherFilter();
@@ -75,8 +70,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConflictWhenATeacherIsPreferedNotAvailable()
-			throws Exception {
+	public void shouldDetectConflictWhenATeacherIsPreferedNotAvailable() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1010Section);
 
@@ -89,8 +83,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConflictWhenATeacherIsUnavailable()
-			throws Exception {
+	public void shouldDetectConflictWhenATeacherIsUnavailable() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo2000Section);
 
@@ -103,8 +96,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenTeacherIsAvailable()
-			throws Exception {
+	public void shouldNotDetectConflictWhenTeacherIsAvailable() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 
@@ -115,8 +107,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConflictWhenATeacherIsPreferedNotAvailableForSection()
-			throws Exception {
+	public void shouldDetectConflictWhenATeacherIsPreferedNotAvailableForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1010Section);
 
@@ -129,8 +120,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConflictWhenATeacherIsUnavailableForSection()
-			throws Exception {
+	public void shouldDetectConflictWhenATeacherIsUnavailableForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo2000Section);
 
@@ -143,8 +133,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenTeacherIsAvailableForSection()
-			throws Exception {
+	public void shouldNotDetectConflictWhenTeacherIsAvailableForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1901Section);
 

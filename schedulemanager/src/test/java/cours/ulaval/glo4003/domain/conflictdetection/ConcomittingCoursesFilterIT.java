@@ -39,8 +39,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 	private ConcomittingCoursesFilter filter;
 
 	@Before
-	public void setup()
-			throws Exception {
+	public void setup() throws Exception {
 		Prerequisite concomittingPrerequisite = new Prerequisite();
 		concomittingPrerequisite.setAcronyms(Arrays.asList("IFT-2002"));
 		concomittingPrerequisite.setIsConcomitant(true);
@@ -53,8 +52,8 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 				Arrays.asList(concomittingPrerequisite), new TimeDedicated(3, 0, 6));
 		Course ift2004 = new Course("IFT-2004", "Génie logiciel orienté derp", 3, "derpinini", Cycle.Premier,
 				Arrays.asList(notConcomittingPrerequisite), new TimeDedicated(3, 0, 6));
-		Course ift2002 = new Course("IFT-2002", "Génie logiciel orienté derp", 3, "derpinini", Cycle.Premier,
-				new ArrayList<Prerequisite>(), new TimeDedicated(3, 0, 6));
+		Course ift2002 = new Course("IFT-2002", "Génie logiciel orienté derp", 3, "derpinini", Cycle.Premier, new ArrayList<Prerequisite>(),
+				new TimeDedicated(3, 0, 6));
 
 		courseRepository = new XMLCourseRepository();
 
@@ -62,17 +61,14 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 		courseRepository.store(ift2004);
 		courseRepository.store(ift2002);
 
-		glo2002Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "GLO-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		glo2002Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "GLO-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		glo2002Section.setCourseRepository(courseRepository);
-		ift2004Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "IFT-2004", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		ift2004Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "IFT-2004", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		ift2004Section.setCourseRepository(courseRepository);
-		ift2002Section = new Section("11765", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "IFT-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		ift2002Section = new Section("11765", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "IFT-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		ift2002Section.setCourseRepository(courseRepository);
 
 		nextFilterMock = mock(Filter.class);
@@ -88,8 +84,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConcomittingCoursesConflict()
-			throws Exception {
+	public void shouldDetectConcomittingCoursesConflict() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 		schedule.add(glo2002Section);
@@ -103,8 +98,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenCoursesNotConcomitting()
-			throws Exception {
+	public void shouldNotDetectConflictWhenCoursesNotConcomitting() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 		schedule.add(ift2004Section);
@@ -116,8 +110,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectConcomittingCoursesConflictForSection()
-			throws Exception {
+	public void shouldDetectConcomittingCoursesConflictForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 
@@ -130,8 +123,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenCoursesNotConcomittingForSection()
-			throws Exception {
+	public void shouldNotDetectConflictWhenCoursesNotConcomittingForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 

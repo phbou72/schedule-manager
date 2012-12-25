@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-  prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page session="true"%>
 <!DOCTYPE html>
 <html>
@@ -25,8 +24,7 @@
 			<c:when test="${error != 'success'}">
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">×</button>
-					<strong>Erreur!</strong> Une erreur est survenue, veuillez
-					réessayer - ${error}.
+					<strong>Erreur!</strong> Une erreur est survenue, veuillez réessayer - ${error}.
 				</div>
 			</c:when>
 			<c:when test="${ error == 'success'}">
@@ -37,7 +35,7 @@
 			</c:when>
 		</c:choose>
 		<c:if test="${not empty schedules}">
-		<c:url var="scheduleurl" value="schedule"></c:url>
+			<c:url var="scheduleurl" value="schedule"></c:url>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -49,29 +47,24 @@
 					<c:if test="${id != schedule.id}">
 						<tr id="${schedule.id}">
 							<td class="span12">[${schedule.semester} ${schedule.year}] ${schedule.id}</td>
-							<td class="centered">
-								<c:choose>
-								      <c:when test="${schedule.score <= 300}">
-								      	<span class="badge badge-success">${schedule.score}</span>
-								      </c:when>
-	    							  <c:when test="${schedule.score <= 600 && schedule.score > 300}">
-								      	<span class="badge badge-warning">${schedule.score}</span>
-								      </c:when>
-								      <c:otherwise>
-								      	<span class="badge badge-important">${schedule.score}</span>
-								      </c:otherwise>
-								</c:choose>
-							</td>
-							<td class="centered">
-								<a class="btn btn-label" href="<c:url value="/${scheduleurl}/${id}/reuseschedule/${schedule.id}" />">
-									<i class="icon-plus"></i> Ajouter
-								</a>
-							</td>
+							<td class="centered"><c:choose>
+									<c:when test="${schedule.score <= 300}">
+										<span class="badge badge-success">${schedule.score}</span>
+									</c:when>
+									<c:when test="${schedule.score <= 600 && schedule.score > 300}">
+										<span class="badge badge-warning">${schedule.score}</span>
+									</c:when>
+									<c:otherwise>
+										<span class="badge badge-important">${schedule.score}</span>
+									</c:otherwise>
+								</c:choose></td>
+							<td class="centered"><a class="btn btn-label" href="<c:url value="/${scheduleurl}/${id}/reuseschedule/${schedule.id}" />"> <i class="icon-plus"></i> Ajouter
+							</a></td>
 						</tr>
 					</c:if>
 				</c:forEach>
 			</table>
-			
+
 			<p>Légende des scores d'horaires</p>
 			Bon : <span class="badge badge-success">0-300</span>
 	      	Moyen : <span class="badge badge-warning">301-600</span>

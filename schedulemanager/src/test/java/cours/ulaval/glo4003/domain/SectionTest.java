@@ -40,8 +40,7 @@ public class SectionTest {
 		courseTimeSlot = Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY));
 		labTimeSlot = new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.FRIDAY);
 		courseAcronym = "GLO_4002";
-		section = new Section(nrc, group, personInCharge, teachers, teachMode, timeDedicated, courseAcronym, courseTimeSlot,
-				labTimeSlot);
+		section = new Section(nrc, group, personInCharge, teachers, teachMode, timeDedicated, courseAcronym, courseTimeSlot, labTimeSlot);
 	}
 
 	@Test

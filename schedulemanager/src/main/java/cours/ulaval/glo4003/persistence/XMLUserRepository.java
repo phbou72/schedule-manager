@@ -25,6 +25,7 @@ public class XMLUserRepository implements UserRepository {
 		this.serializer = serializer;
 	}
 
+	@Override
 	public User findByIdul(String idul) {
 		return users.get(idul);
 	}

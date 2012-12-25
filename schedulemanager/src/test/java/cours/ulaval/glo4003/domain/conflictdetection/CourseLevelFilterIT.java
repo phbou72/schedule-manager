@@ -35,37 +35,30 @@ public class CourseLevelFilterIT extends ITTestBase {
 	private Filter nextFilterMock;
 
 	@Before
-	public void setup()
-			throws Exception {
+	public void setup() throws Exception {
 		programSheetRepository = new XMLProgramSheetRepository();
 
-		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		glo1901Section.setProgramSheetRepository(programSheetRepository);
-		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		glo1010Section = new Section("90876", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "GLO-1010", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		glo1010Section.setProgramSheetRepository(programSheetRepository);
-		ift2002Section = new Section("11765", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "IFT-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		ift2002Section = new Section("11765", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "IFT-2002", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		ift2002Section.setProgramSheetRepository(programSheetRepository);
-		ift1000Section = new Section("21345", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "IFT-1000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		ift1000Section = new Section("21345", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "IFT-1000", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		ift1000Section.setProgramSheetRepository(programSheetRepository);
-		ift2901Section = new Section("87678", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"),
-				TeachMode.InCourse, new TimeDedicated(), "IFT-2901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3,
-						DayOfWeek.MONDAY)), null);
+		ift2901Section = new Section("87678", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
+				new TimeDedicated(), "IFT-2901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);
 		ift2901Section.setProgramSheetRepository(programSheetRepository);
 
 		nextFilterMock = mock(Filter.class);
 	}
 
 	@Test
-	public void shouldDetectSameCourseLevelConflictInGLOProgramSheet()
-			throws Exception {
+	public void shouldDetectSameCourseLevelConflictInGLOProgramSheet() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1010Section);
 		schedule.add(glo1901Section);
@@ -84,8 +77,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectSameCourseLevelConflictInIFTProgramSheet()
-			throws Exception {
+	public void shouldDetectSameCourseLevelConflictInIFTProgramSheet() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 		schedule.add(ift1000Section);
@@ -104,8 +96,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenCoursesAreNotSameLevel()
-			throws Exception {
+	public void shouldNotDetectConflictWhenCoursesAreNotSameLevel() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2901Section);
 		schedule.add(glo1901Section);
@@ -122,8 +113,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectSameCourseLevelConflictInGLOProgramSheetForSection()
-			throws Exception {
+	public void shouldDetectSameCourseLevelConflictInGLOProgramSheetForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(glo1010Section);
 
@@ -141,8 +131,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldDetectSameCourseLevelConflictInIFTProgramSheetForSection()
-			throws Exception {
+	public void shouldDetectSameCourseLevelConflictInIFTProgramSheetForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2002Section);
 
@@ -160,8 +149,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 	}
 
 	@Test
-	public void shouldNotDetectConflictWhenCoursesAreNotSameLevelForSection()
-			throws Exception {
+	public void shouldNotDetectConflictWhenCoursesAreNotSameLevelForSection() throws Exception {
 		Schedule schedule = new Schedule("h2012");
 		schedule.add(ift2901Section);
 		schedule.add(glo1901Section);

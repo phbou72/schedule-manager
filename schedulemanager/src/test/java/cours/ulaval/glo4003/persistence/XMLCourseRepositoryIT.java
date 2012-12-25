@@ -21,8 +21,7 @@ public class XMLCourseRepositoryIT extends ITTestBase {
 	private XMLCourseRepository repository;
 
 	@Before
-	public void setup()
-			throws Exception {
+	public void setup() throws Exception {
 		serializer = new XMLSerializer<CoursesXMLWrapper>(CoursesXMLWrapper.class);
 		serializer.setResourcesLoader(new ResourcesLoader());
 
@@ -35,8 +34,7 @@ public class XMLCourseRepositoryIT extends ITTestBase {
 	}
 
 	@Test
-	public void canGetCourses()
-			throws Exception {
+	public void canGetCourses() throws Exception {
 		repository.store(CreateACourse());
 
 		Course course = repository.findByAcronym("GLO-4444");
@@ -45,8 +43,7 @@ public class XMLCourseRepositoryIT extends ITTestBase {
 	}
 
 	@Test
-	public void canFindAllCourses()
-			throws Exception {
+	public void canFindAllCourses() throws Exception {
 		Course course = CreateACourse();
 		course.setAcronym("IFT-1200");
 
@@ -59,8 +56,7 @@ public class XMLCourseRepositoryIT extends ITTestBase {
 	}
 
 	@Test
-	public void canClearAllTheCourses()
-			throws Exception {
+	public void canClearAllTheCourses() throws Exception {
 		repository.store(CreateACourse());
 
 		repository.clear();

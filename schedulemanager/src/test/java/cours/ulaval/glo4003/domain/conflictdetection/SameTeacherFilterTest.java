@@ -27,8 +27,7 @@ public class SameTeacherFilterTest {
 	private Section anotherSectionMock;
 
 	@Before
-	public void setUp()
-			throws Exception {
+	public void setUp() throws Exception {
 		TimeSlot timeSlotMock = mock(TimeSlot.class);
 		when(timeSlotMock.isOverlapping(any(TimeSlot.class))).thenReturn(true);
 		List<TimeSlot> timeSlotsMocks = Arrays.asList(timeSlotMock);

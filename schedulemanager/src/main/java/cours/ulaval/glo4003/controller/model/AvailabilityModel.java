@@ -12,12 +12,12 @@ public class AvailabilityModel {
 	private List<AvailabilityLevel> wednesday;
 	private List<AvailabilityLevel> thursday;
 	private List<AvailabilityLevel> friday;
-	
-	public AvailabilityModel () {
-		
+
+	public AvailabilityModel() {
+
 	}
-	
-	public AvailabilityModel (Availability availability) {
+
+	public AvailabilityModel(Availability availability) {
 		monday = availability.getMonday();
 		tuesday = availability.getTuesday();
 		wednesday = availability.getWednesday();
@@ -25,7 +25,7 @@ public class AvailabilityModel {
 		friday = availability.getFriday();
 	}
 
-	public Availability toAvailability (String idul) {
+	public Availability toAvailability(String idul) {
 		Availability availability = new Availability();
 		availability.setMonday(monday);
 		availability.setTuesday(tuesday);
@@ -33,10 +33,10 @@ public class AvailabilityModel {
 		availability.setWednesday(wednesday);
 		availability.setFriday(friday);
 		availability.setIdul(idul);
-		
+
 		return availability;
 	}
-	
+
 	public List<AvailabilityLevel> getMonday() {
 		return monday;
 	}

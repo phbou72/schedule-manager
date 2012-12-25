@@ -25,8 +25,7 @@ public class XMLCourseRepositoryTest {
 	private XMLSerializer<CoursesXMLWrapper> mockedSerializer;
 
 	@Before
-	public void setUp()
-			throws Exception {
+	public void setUp() throws Exception {
 		mockedSerializer = mock(XMLSerializer.class);
 		CoursesXMLWrapper dto = prepareMockedCourseDTO();
 		ConfigManager resourcesPaths = ConfigManager.getConfigManager();
@@ -36,30 +35,26 @@ public class XMLCourseRepositoryTest {
 	}
 
 	@Test
-	public void canInstantiateCourseRepository()
-			throws Exception {
+	public void canInstantiateCourseRepository() throws Exception {
 		XMLCourseRepository repository = new XMLCourseRepository();
 
 		assertNotNull(repository);
 	}
 
 	@Test
-	public void canFindAllCourses()
-			throws Exception {
+	public void canFindAllCourses() throws Exception {
 		assertEquals(1, repository.findAll().size());
 	}
 
 	@Test
-	public void canFindACourseByAcronym()
-			throws Exception {
+	public void canFindACourseByAcronym() throws Exception {
 		Course course = repository.findByAcronym(AN_ACRONYM);
 
 		assertEquals(AN_ACRONYM, course.getAcronym());
 	}
 
 	@Test
-	public void canFindCoursesByOffering()
-			throws Exception {
+	public void canFindCoursesByOffering() throws Exception {
 		Offering offering = mock(Offering.class);
 		when(offering.getOffering()).thenReturn(Arrays.asList(AN_ACRONYM));
 
@@ -70,8 +65,7 @@ public class XMLCourseRepositoryTest {
 	}
 
 	@Test
-	public void canStoreCourseMultipleTimes()
-			throws Exception {
+	public void canStoreCourseMultipleTimes() throws Exception {
 		Course course = mock(Course.class);
 
 		repository.store(course);
@@ -81,8 +75,7 @@ public class XMLCourseRepositoryTest {
 	}
 
 	@Test
-	public void canClearTheRepository()
-			throws Exception {
+	public void canClearTheRepository() throws Exception {
 		repository.clear();
 
 		assertEquals(0, repository.findAll().size());

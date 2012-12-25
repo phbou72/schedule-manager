@@ -41,45 +41,45 @@ body {
 }
 
 .brightyellow {
-  background-color : #FFFF00;
+	background-color: #FFFF00;
 }
 
 .yellow {
-	background-color : #FFD078;
+	background-color: #FFD078;
 }
 
 .red {
-  background-color : #FE2E2E;
+	background-color: #FE2E2E;
 }
 
 .inline {
-	display:inline;
+	display: inline;
 }
 
 .profil {
-	margin:0 5px;
+	margin: 0 5px;
 }
 
 .textRight {
-	text-align : right;
+	text-align: right;
 }
 
-.btn-label{
+.btn-label {
 	width: 100px;
 }
 
 .blue {
-	color : #2E64FE;
+	color: #2E64FE;
 }
 
 .loading {
-	margin:10px;
+	margin: 10px;
 }
 
 .green {
-	color : #088A08;
+	color: #088A08;
 }
 
 .redtext {
-	color : #FE2E2E;
+	color: #FE2E2E;
 }

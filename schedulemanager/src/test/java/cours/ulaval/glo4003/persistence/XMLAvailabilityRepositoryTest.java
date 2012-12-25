@@ -30,22 +30,19 @@ public class XMLAvailabilityRepositoryTest {
 	}
 
 	@Test
-	public void canInstantiate()
-			throws Exception {
+	public void canInstantiate() throws Exception {
 		assertNotNull(repo);
 	}
 
 	@Test
-	public void canFindAnAvailabilityWithAnIdul()
-			throws Exception {
+	public void canFindAnAvailabilityWithAnIdul() throws Exception {
 		repo.store(availability);
 
 		assertEquals(availability, repo.findByIdul(UN_IDUL));
 	}
 
 	@Test
-	public void canClearAvailabilities()
-			throws Exception {
+	public void canClearAvailabilities() throws Exception {
 		repo.store(availability);
 
 		repo.clear();

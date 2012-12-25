@@ -6,15 +6,11 @@
 <head>
 <meta charset="utf-8">
 <title>Schedule Manager</title>
-<link href="<c:url value="/resources/css/bootstrap.css" />"
-	rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/app.css" />" rel="stylesheet">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/app.js" />" /></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/js/bootstrap.js" />" /></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/app.js" />" /></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" /></script>
 </head>
 <body>
 	<c:import url="header.jsp" />
@@ -24,15 +20,18 @@
 				<div class="hero-unit">
 					<h1>Résultats de recherche</h1>
 				</div>
-				<h4>${fn:length(courses)} résultat<c:if test="${fn:length(courses)} > 1">s</c:if> de recherche pour
-					"${keywords}".</h4>
+				<h4>
+					${fn:length(courses)} résultat
+					<c:if test="${fn:length(courses)} > 1">s</c:if>
+					de recherche pour "${keywords}".
+				</h4>
 				<c:url var="courseurl" value="/course/"></c:url>
 				<c:forEach var="course" items="${courses}">
 					<h4>
-						<a href="${courseurl}${course.acronym}"><b>${course.acronym}
-								- ${course.title}</b></a>
+						<a href="${courseurl}${course.acronym}"><b>${course.acronym} - ${course.title}</b></a>
 					</h4>
-					<div class="span12">${course.description}</div><div class="span12"></div>
+					<div class="span12">${course.description}</div>
+					<div class="span12"></div>
 				</c:forEach>
 			</div>
 		</div>

@@ -22,8 +22,7 @@ public class XMLOfferingRepositoryTest {
 	private XMLOfferingRepository repository;
 
 	@Before
-	public void setUp()
-			throws Exception {
+	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		when(offering.getYear()).thenReturn(VALID_YEAR);
 		repository = new XMLOfferingRepository(mockedSerializer);
@@ -35,16 +34,14 @@ public class XMLOfferingRepositoryTest {
 	}
 
 	@Test
-	public void canStoreAnOffering()
-			throws Exception {
+	public void canStoreAnOffering() throws Exception {
 		repository.store(offering);
 
 		assertEquals(offering, repository.find(VALID_YEAR));
 	}
 
 	@Test
-	public void canStoreAnOfferingWhenRepositoryAlreadyContainsYear()
-			throws Exception {
+	public void canStoreAnOfferingWhenRepositoryAlreadyContainsYear() throws Exception {
 		repository.store(offering);
 
 		repository.store(offering);
@@ -52,16 +49,14 @@ public class XMLOfferingRepositoryTest {
 	}
 
 	@Test
-	public void canFindAnOffering()
-			throws Exception {
+	public void canFindAnOffering() throws Exception {
 		repository.store(offering);
 
 		assertEquals(offering, repository.find(VALID_YEAR));
 	}
 
 	@Test
-	public void canFindYearsOfOfferings()
-			throws Exception {
+	public void canFindYearsOfOfferings() throws Exception {
 		repository.store(offering);
 
 		assertNotNull(repository.findYears());
@@ -69,8 +64,7 @@ public class XMLOfferingRepositoryTest {
 	}
 
 	@Test
-	public void canDeleteAnOffering()
-			throws Exception {
+	public void canDeleteAnOffering() throws Exception {
 		repository.store(offering);
 
 		repository.delete(VALID_YEAR, A_SEMESTER);
@@ -79,8 +73,7 @@ public class XMLOfferingRepositoryTest {
 	}
 
 	@Test
-	public void canCheckIfContainsOffering()
-			throws Exception {
+	public void canCheckIfContainsOffering() throws Exception {
 		repository.store(offering);
 
 		assertTrue(repository.containsOfferingFor(VALID_YEAR));

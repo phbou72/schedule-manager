@@ -15,26 +15,24 @@ public class XMLCourseRepository implements CourseRepository {
 	private Map<String, Course> courses = new HashMap<String, Course>();
 	private XMLSerializer<CoursesXMLWrapper> serializer;
 
-	public XMLCourseRepository()
-			throws Exception {
+	public XMLCourseRepository() throws Exception {
 		serializer = new XMLSerializer<CoursesXMLWrapper>(CoursesXMLWrapper.class);
 		parseXML();
 	}
 
-	public List<Course> findAll()
-			throws Exception {
+	@Override
+	public List<Course> findAll() throws Exception {
 		return new ArrayList<Course>(courses.values());
 	}
 
-	private void parseXML()
-			throws Exception {
-		List<Course> deserializedCourses = serializer.deserialize(ConfigManager.getConfigManager().getCoursesFilePath())
-				.getCourses();
+	private void parseXML() throws Exception {
+		List<Course> deserializedCourses = serializer.deserialize(ConfigManager.getConfigManager().getCoursesFilePath()).getCourses();
 		for (Course course : deserializedCourses) {
 			courses.put(course.getAcronym(), course);
 		}
 	}
 
+	@Override
 	public Course findByAcronym(String acronym) {
 		return courses.get(acronym);
 	}
@@ -67,8 +65,7 @@ public class XMLCourseRepository implements CourseRepository {
 	}
 
 	// Do not use : for test purpose only
-	protected XMLCourseRepository(XMLSerializer<CoursesXMLWrapper> serializer)
-			throws Exception {
+	protected XMLCourseRepository(XMLSerializer<CoursesXMLWrapper> serializer) throws Exception {
 		this.serializer = serializer;
 		parseXML();
 	}

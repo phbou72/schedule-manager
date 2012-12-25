@@ -28,8 +28,8 @@ public class Section {
 		initializeRepositories();
 	}
 
-	public Section(String nrc, String group, String personInCharge, List<String> teachers, TeachMode teachMode,
-			TimeDedicated timeDedicated, String courseAcronym, List<TimeSlot> courseTimeSlots, TimeSlot labTimeSlot) {
+	public Section(String nrc, String group, String personInCharge, List<String> teachers, TeachMode teachMode, TimeDedicated timeDedicated,
+			String courseAcronym, List<TimeSlot> courseTimeSlots, TimeSlot labTimeSlot) {
 		super();
 		this.nrc = nrc;
 		this.group = group;
@@ -85,6 +85,7 @@ public class Section {
 		return (timeDedicated.getLabHours() > 0);
 	}
 
+	@Override
 	public Section clone() {
 		Section section = new Section(nrc, group, personInCharge, null, teachMode, null, courseAcronym, null, null);
 		if (labTimeSlot != null) {
@@ -105,8 +106,7 @@ public class Section {
 			section.setTeachers(clonedTeachers);
 		}
 		if (timeDedicated != null) {
-			section.setTimeDedicated(new TimeDedicated(timeDedicated.getCourseHours(), timeDedicated.getLabHours(), timeDedicated
-					.getOtherHours()));
+			section.setTimeDedicated(new TimeDedicated(timeDedicated.getCourseHours(), timeDedicated.getLabHours(), timeDedicated.getOtherHours()));
 		}
 		return section;
 

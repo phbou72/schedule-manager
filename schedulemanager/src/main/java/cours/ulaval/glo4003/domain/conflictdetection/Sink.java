@@ -9,6 +9,7 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.Conflict;
 
 public class Sink extends Filter {
 
+	@Override
 	public List<Conflict> run(Schedule schedule) {
 		return new ArrayList<Conflict>();
 	}
