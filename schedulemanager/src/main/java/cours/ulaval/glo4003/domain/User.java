@@ -19,7 +19,6 @@ public class User {
 	private List<Notification> notifications = new ArrayList<Notification>();
 
 	public User() {
-
 	}
 
 	public User(String idul, String name, String password, Role role) {
@@ -30,19 +29,62 @@ public class User {
 	}
 
 	public void acceptSchedule(Schedule schedule) {
-		if (roles.contains(Role.ROLE_Enseignant)) {
+		if (hasRole(Role.ROLE_Enseignant)) {
 			schedule.addStatus(idul, ScheduleStatus.Accepted);
 		}
 	}
 
 	public void refuseSchedule(Schedule schedule) {
-		if (roles.contains(Role.ROLE_Enseignant)) {
+		if (hasRole(Role.ROLE_Enseignant)) {
 			schedule.addStatus(idul, ScheduleStatus.Refused);
 		}
 	}
 
 	public boolean validateCredentials(String password) {
 		return this.password.equals(password);
+	}
+
+	public boolean hasValidEmailAdress() {
+		return emailAddress.matches(EMAIL_VALIDATION_REGEX);
+	}
+
+	public void addRole(Role role) {
+		if (!hasRole(role)) {
+			roles.add(role);
+		}
+	}
+
+	public boolean hasRole(Role role) {
+		if (roles.indexOf(role) != -1) {
+			return true;
+		}
+		return false;
+	}
+
+	public int getNumberOfRoles() {
+		return roles.size();
+	}
+
+	public void addNotification(Notification notification) {
+		if (!hasNotification(notification)) {
+			notifications.add(notification);
+		}
+	}
+
+	public void removeNotification(Notification notification) {
+		notifications.remove(notification);
+	}
+
+	public boolean hasNotification() {
+		return getNumberOfNotifications() > 0;
+	}
+
+	public int getNumberOfNotifications() {
+		return notifications.size();
+	}
+
+	public boolean hasNotification(Notification notification) {
+		return notifications.contains(notification);
 	}
 
 	public void setIdul(String idul) {
@@ -73,6 +115,10 @@ public class User {
 		this.roles = role;
 	}
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -81,40 +127,12 @@ public class User {
 		this.emailAddress = emailAddress;
 	}
 
-	public boolean hasValidEmailAdress() {
-		return emailAddress.matches(EMAIL_VALIDATION_REGEX);
-	}
-
-	public void addRole(Role role) {
-		if (!this.roles.contains(role)) {
-			this.roles.add(role);
-		}
-	}
-
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void addNotification(Notification notification) {
-		if (!notifications.contains(notification)) {
-			notifications.add(notification);
-		}
-	}
-
-	public void removeNotification(Notification notification) {
-		notifications.remove(notification);
-	}
-
 	public List<Notification> getNotifications() {
 		return notifications;
 	}
 
 	public void setNotifications(List<Notification> notifications) {
 		this.notifications = notifications;
-	}
-
-	public boolean hasNotification() {
-		return notifications.size() > 0;
 	}
 
 	@Override

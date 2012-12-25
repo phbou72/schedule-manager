@@ -13,7 +13,6 @@ public class UserTest {
 	private static Role ROLE = Role.ROLE_Directeur;
 	private static String WRONG_PASSWORD = "mauvaismotdepasse";
 	private static String VALID_EMAIL_ADRESS = "email@schedulemanager.com";
-	private static String INVALID_EMAIL_ADRESS = "herpetyderp";
 	private static Notification notification;
 	private static final String A_PATH = "path";
 
@@ -23,38 +22,6 @@ public class UserTest {
 	public void setUp() {
 		user = new User(IDUL, NAME, PASSWORD, ROLE);
 		notification = new Notification(Notification.NEW_SCHEDULE, A_PATH);
-		user.addNotification(notification);
-	}
-
-	@Test
-	public void canInstantiateAUser() {
-
-		assertNotNull(user);
-	}
-
-	@Test
-	public void canGetUsername() {
-
-		assertEquals(IDUL, user.getIdul());
-	}
-
-	@Test
-	public void canGetName() {
-
-		assertEquals(NAME, user.getName());
-	}
-
-	@Test
-	public void canVerifyInvalidEmailAdress() {
-		user.setEmailAddress(INVALID_EMAIL_ADRESS);
-
-		assertFalse(user.hasValidEmailAdress());
-	}
-
-	@Test
-	public void canVerifyEmptyEmailAdress() {
-
-		assertFalse(user.hasValidEmailAdress());
 	}
 
 	@Test
@@ -66,41 +33,52 @@ public class UserTest {
 
 	@Test
 	public void canValidateCredentials() {
-
 		assertTrue(user.validateCredentials(PASSWORD));
 	}
 
 	@Test
 	public void canValidateWrongCredentials() {
-
 		assertFalse(user.validateCredentials(WRONG_PASSWORD));
 	}
 
 	@Test
-	public void canAddRoleOfAUser() {
+	public void canAddRoleToUser() {
 		user.addRole(Role.ROLE_Enseignant);
 
-		assertTrue(user.getRoles().contains(Role.ROLE_Enseignant));
+		assertTrue(user.hasRole(Role.ROLE_Enseignant));
+	}
+
+	@Test
+	public void cannotAddTheSameRoleTwice() {
+		int nbExpected = user.getNumberOfRoles() + 1;
+
+		user.addRole(Role.ROLE_Enseignant);
+		user.addRole(Role.ROLE_Enseignant);
+
+		assertEquals(nbExpected, user.getNumberOfRoles());
 	}
 
 	@Test
 	public void canAddNotificationToUser() {
+		user.addNotification(notification);
 
-		assertTrue(user.hasNotification());
+		assertTrue(user.hasNotification(notification));
 	}
 
 	@Test
 	public void canRemoveNotificationToUser() {
 		user.removeNotification(notification);
 
-		assertFalse(user.getNotifications().contains(notification));
+		assertFalse(user.hasNotification(notification));
 	}
 
 	@Test
-	public void cannotAddMoreThanOnceTheSameNotification() {
-		int numberOfNotifications = user.getNotifications().size();
+	public void cannotAddTheSameNotificationTwice() {
+		int nbExpected = 1;
+
+		user.addNotification(notification);
 		user.addNotification(notification);
 
-		assertEquals(numberOfNotifications, user.getNotifications().size());
+		assertEquals(nbExpected, user.getNumberOfNotifications());
 	}
 }
