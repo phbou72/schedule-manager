@@ -59,12 +59,12 @@ Dans 'Java > Editor > Save Actions'
   * Cocher 'Format source code', select 'Format all lines'
   * Cocher 'Organize imports'
   * Cocher 'Additional actions'
-    ** Configurer les actions : 
-      *** Activer 'Remove trailing whitespace'
-      *** Activer 'Correct indentation'
-      *** Activer 'Use block in if/else/for ... - Always'
-      *** Désactiver 'Use modifier final where possible'
-      *** Activer 'Remove unused import'
+    * Configurer les actions : 
+      * Activer 'Remove trailing whitespace'
+      * Activer 'Correct indentation'
+      * Activer 'Use block in if/else/for ... - Always'
+      * Désactiver 'Use modifier final where possible'
+      * Activer 'Remove unused import'
 	
 Dans 'General > Workspace'
   * Text file encoding:
