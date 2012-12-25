@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
-
 public class TimeSlotTest {
 
 	private static final int A_HOUR = 10;
@@ -13,27 +11,14 @@ public class TimeSlotTest {
 	private static final int A_DURATION = 3;
 
 	@Test
-	public void canInstantiateTimeSlotWithStartTimeAndDuration() {
-		Time startTime = generateStartTime();
-		Integer duration = A_DURATION;
-
-		TimeSlot timeSlot = new TimeSlot(startTime, duration, DayOfWeek.MONDAY);
-
-		assertNotNull(timeSlot);
-		assertEquals(startTime, timeSlot.getStartTime());
-		assertEquals(duration, timeSlot.getDuration());
-	}
-
-	@Test
 	public void shouldCalculateCorrespondingEndTimeOnInstantiation() {
 		Time startTime = generateStartTime();
-		Integer duration = A_DURATION;
 		Time endTime = generateEndTime();
+		Integer duration = A_DURATION;
 
 		TimeSlot timeSlot = new TimeSlot(startTime, duration, DayOfWeek.MONDAY);
 
-		assertEquals(endTime.getHour(), timeSlot.getEndTime().getHour());
-		assertEquals(endTime.getMinute(), timeSlot.getEndTime().getMinute());
+		assertEquals(endTime, timeSlot.getEndTime());
 	}
 
 	@Test
@@ -78,8 +63,7 @@ public class TimeSlotTest {
 
 		TimeSlot clonedTimeSlot = timeSlot.clone();
 
-		assertEquals(timeSlot.getStartTime(), clonedTimeSlot.getStartTime());
-		assertEquals(timeSlot.getDuration(), clonedTimeSlot.getDuration());
+		assertEquals(timeSlot, clonedTimeSlot);
 	}
 
 	private Time generateEndTime() {

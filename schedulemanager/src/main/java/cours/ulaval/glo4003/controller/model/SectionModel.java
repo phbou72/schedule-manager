@@ -8,12 +8,12 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import cours.ulaval.glo4003.domain.DayOfWeek;
 import cours.ulaval.glo4003.domain.Section;
 import cours.ulaval.glo4003.domain.TeachMode;
 import cours.ulaval.glo4003.domain.Time;
 import cours.ulaval.glo4003.domain.TimeDedicated;
 import cours.ulaval.glo4003.domain.TimeSlot;
-import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
 
 public class SectionModel {
 	public static final Map<DayOfWeek, String> inverseDaysAssociations;

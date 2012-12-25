@@ -1,9 +1,10 @@
 package cours.ulaval.glo4003.domain;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class TimeSlot {
-	public enum DayOfWeek {
-		SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY;
-	}
 
 	private Time startTime;
 	private Time endTime;
@@ -16,16 +17,14 @@ public class TimeSlot {
 	}
 
 	public TimeSlot(Time startTime, Time endTime, DayOfWeek dayOfWeek) {
-		this.startTime = startTime;
-		this.duration = endTime.getHour() - startTime.getHour();
-		this.dayOfWeek = dayOfWeek;
-		calculateEndTime();
+		this(startTime, endTime.getHour() - startTime.getHour(), dayOfWeek);
 	}
 
 	public TimeSlot(Time startTime, Integer duration, DayOfWeek dayOfWeek) {
 		this.startTime = startTime;
 		this.duration = duration;
 		this.dayOfWeek = dayOfWeek;
+
 		calculateEndTime();
 	}
 
@@ -34,27 +33,13 @@ public class TimeSlot {
 		endTime.addHours(duration);
 	}
 
-	@Override
-	public TimeSlot clone() {
-		TimeSlot clonedTimeSlot = new TimeSlot();
-		clonedTimeSlot.setDayOfWeek(dayOfWeek);
-		clonedTimeSlot.setDuration(duration);
-		clonedTimeSlot.setStartTime(new Time(startTime.getHour(), startTime.getMinute()));
-		clonedTimeSlot.setEndTime(new Time(endTime.getHour(), endTime.getMinute()));
-		return clonedTimeSlot;
-	}
-
 	public boolean isOverlapping(TimeSlot timeslot) {
 		if (dayOfWeek != timeslot.dayOfWeek) {
 			return false;
-		} else {
-			if (endTime.before(timeslot.getStartTime()) || endTime.equals(timeslot.getStartTime())) {
-				return false;
-			}
-
-			if (startTime.after(timeslot.getEndTime()) || startTime.equals(timeslot.getEndTime())) {
-				return false;
-			}
+		} else if (endTime.before(timeslot.getStartTime()) || endTime.equals(timeslot.getStartTime())) {
+			return false;
+		} else if (startTime.after(timeslot.getEndTime()) || startTime.equals(timeslot.getEndTime())) {
+			return false;
 		}
 
 		return true;
@@ -92,4 +77,26 @@ public class TimeSlot {
 		this.dayOfWeek = dayOfWeek;
 	}
 
+	@Override
+	public TimeSlot clone() {
+		TimeSlot newTimeSlot = new TimeSlot();
+
+		try {
+			BeanUtils.copyProperties(newTimeSlot, this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return newTimeSlot;
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return EqualsBuilder.reflectionEquals(this, obj);
+	}
 }

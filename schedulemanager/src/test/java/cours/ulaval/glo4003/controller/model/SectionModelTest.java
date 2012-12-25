@@ -9,12 +9,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import cours.ulaval.glo4003.domain.DayOfWeek;
 import cours.ulaval.glo4003.domain.Section;
 import cours.ulaval.glo4003.domain.TeachMode;
 import cours.ulaval.glo4003.domain.Time;
 import cours.ulaval.glo4003.domain.TimeDedicated;
 import cours.ulaval.glo4003.domain.TimeSlot;
-import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
 
 public class SectionModelTest {
 

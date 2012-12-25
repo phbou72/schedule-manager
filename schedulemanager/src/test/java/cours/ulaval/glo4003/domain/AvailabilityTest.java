@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cours.ulaval.glo4003.controller.model.AvailabilityModel;
-import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
 
 public class AvailabilityTest {
 

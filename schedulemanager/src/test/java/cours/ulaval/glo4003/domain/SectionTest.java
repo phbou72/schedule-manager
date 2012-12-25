@@ -10,7 +10,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
 import cours.ulaval.glo4003.persistence.CourseXMLRepository;
 import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
 

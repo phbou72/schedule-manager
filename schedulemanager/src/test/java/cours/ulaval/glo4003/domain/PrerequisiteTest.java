@@ -10,8 +10,6 @@ import org.junit.Test;
 
 public class PrerequisiteTest {
 
-	private static final String AN_ACRONYM_NOT_ADDED = "not_a_prerequisite";
-
 	private static final String AN_ACRONYM = "anAcronym";
 
 	private Prerequisite prerequisite;
