@@ -73,7 +73,7 @@ Dans 'General > Workspace'
 
 Dans 'Java > Code Style > Formatter'
   * Cliquer sur import et sélectionner le fichier Formatter.xml à la racine du projet
-  * 
+  * Appliquer le même formattage pour 'Javascript'
 
 Dans 'Web' et 'XML' : 
   * Spécifier l'encodage en UTF-8 pour tous les languages
