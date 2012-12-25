@@ -37,7 +37,7 @@ public class Course {
 	public boolean isConcomitting(Course course) {
 		if (prerequisites != null && !prerequisites.isEmpty() && course != null) {
 			for (Prerequisite prerequisite : prerequisites) {
-				if (prerequisite.containsAcronym(course.getAcronym()) && prerequisite.getIsConcomitant()) {
+				if (prerequisite.containsAcronym(course.getAcronym()) && prerequisite.isConcomitant()) {
 					return true;
 				}
 			}

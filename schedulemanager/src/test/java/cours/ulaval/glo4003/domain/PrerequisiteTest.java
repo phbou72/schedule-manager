@@ -10,7 +10,10 @@ import org.junit.Test;
 
 public class PrerequisiteTest {
 
+	private static final String AN_ACRONYM_NOT_ADDED = "not_a_prerequisite";
+
 	private static final String AN_ACRONYM = "anAcronym";
+
 	private Prerequisite prerequisite;
 	private List<String> acronyms = Arrays.asList(AN_ACRONYM);
 
@@ -20,42 +23,17 @@ public class PrerequisiteTest {
 	}
 
 	@Test
-	public void canGetAcronymsWithNoAcronyms() {
-		assertEquals(0, prerequisite.getAcronyms().size());
-	}
-
-	@Test
-	public void canGetAcronymsWithMultipleAcronyms() {
-		prerequisite.setAcronyms(acronyms);
-
-		assertEquals(acronyms, prerequisite.getAcronyms());
-	}
-
-	@Test
-	public void canSetAcronyms() {
-		prerequisite.setAcronyms(acronyms);
-
-		assertEquals(1, prerequisite.getAcronyms().size());
-	}
-
-	@Test
-	public void canGetIfPrerequisiteIsConcomitant() {
-		prerequisite.setIsConcomitant(true);
-
-		assertTrue(prerequisite.getIsConcomitant());
-	}
-
-	@Test
-	public void containsAcronymShouldReturnTrueIfAcronymIsAPrerequisite() {
+	public void containsAcronymReturnTrueIfAcronymIsInside() {
 		prerequisite.setAcronyms(acronyms);
 
 		assertTrue(prerequisite.containsAcronym(AN_ACRONYM));
 	}
 
 	@Test
-	public void containsAcronymShouldReturnFalseIfAcronymIsAPrerequisite() {
-		prerequisite.setAcronyms(acronyms);
+	public void canAddAnAccronym() {
+		prerequisite.addAcronym(AN_ACRONYM);
 
-		assertFalse(prerequisite.containsAcronym("not_a_prerequisite"));
+		assertTrue(prerequisite.containsAcronym(AN_ACRONYM));
 	}
+
 }

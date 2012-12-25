@@ -27,7 +27,7 @@ public class Prerequisite {
 		this.acronyms = acronyms;
 	}
 
-	public Boolean getIsConcomitant() {
+	public Boolean isConcomitant() {
 		return isConcomitant;
 	}
 

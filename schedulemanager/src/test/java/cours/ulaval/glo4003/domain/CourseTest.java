@@ -26,7 +26,7 @@ public class CourseTest {
 
 	@Test
 	public void canTellIfACourseIsConcomitting() {
-		when(prerequisite.getIsConcomitant()).thenReturn(true);
+		when(prerequisite.isConcomitant()).thenReturn(true);
 
 		Course otherCourse = new Course();
 		otherCourse.setAcronym(anyString());
@@ -36,7 +36,7 @@ public class CourseTest {
 
 	@Test
 	public void canTellIfACourseIsNotConcomitting() {
-		when(prerequisite.getIsConcomitant()).thenReturn(false);
+		when(prerequisite.isConcomitant()).thenReturn(false);
 
 		Course otherCourse = new Course();
 		otherCourse.setAcronym(anyString());
