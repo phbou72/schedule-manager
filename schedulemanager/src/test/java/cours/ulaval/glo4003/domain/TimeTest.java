@@ -8,50 +8,41 @@ import org.junit.Test;
 public class TimeTest {
 
 	private static final Integer A_MINUTE = 30;
-	private static final Integer A_HOUR = 10;
-	private static final Integer A_EARLIER_HOUR = 8;
-	private static final Integer A_EARLIER_MINUTE = 15;
+	private static final Integer AN_HOUR = 10;
+	private static final Integer AN_EARLIER_HOUR = 8;
+	private static final Integer AN_EARLIER_MINUTE = 15;
 	private static final Integer A_LATER_HOUR = 12;
 	private static final Integer A_LATER_MINUTE = 45;
 
 	private Time time;
+	private Time anEarlierTime;
+	private Time anotherEarlierTime;
+	private Time aLaterTime;
+	private Time anotherLaterTime;
 
 	@Before
 	public void setUp() {
-		time = new Time(A_HOUR, A_MINUTE);
+		time = new Time(AN_HOUR, A_MINUTE);
+
+		// Il y a quatre cas à tester
+		anEarlierTime = new Time(AN_EARLIER_HOUR, AN_EARLIER_MINUTE);
+		anotherEarlierTime = new Time(AN_HOUR, AN_EARLIER_MINUTE);
+		aLaterTime = new Time(A_LATER_HOUR, A_LATER_MINUTE);
+		anotherLaterTime = new Time(AN_HOUR, A_LATER_MINUTE);
 	}
 
 	@Test
-	public void canInstantiateTime() {
-		Time time = new Time();
-
-		assertNotNull(time);
-	}
-
-	@Test
-	public void canInstantiateTimeWithHourAndMinute() {
-		assertNotNull(time);
-		assertEquals(A_HOUR, time.getHour());
-		assertEquals(A_MINUTE, time.getMinute());
-	}
-
-	@Test
-	public void canAddHourToTime() {
+	public void canAddHour() {
 		Integer hoursToAdd = 2;
 
 		time.addHours(hoursToAdd);
 
-		assertEquals(A_HOUR + hoursToAdd, (int) time.getHour());
+		assertEquals(AN_HOUR + hoursToAdd, (int) time.getHour());
 	}
 
 	@Test
 	public void canDetermineIfATimeIsAfterASpecifiedTime() {
-		Time aEarlierTime = new Time(A_EARLIER_HOUR, A_EARLIER_MINUTE);
-		Time anotherEarlierTime = new Time(A_HOUR, A_EARLIER_MINUTE);
-		Time aLaterTime = new Time(A_LATER_HOUR, A_LATER_MINUTE);
-		Time anotherLaterTime = new Time(A_HOUR, A_LATER_MINUTE);
-
-		assertTrue(time.after(aEarlierTime));
+		assertTrue(time.after(anEarlierTime));
 		assertTrue(time.after(anotherEarlierTime));
 		assertFalse(time.after(aLaterTime));
 		assertFalse(time.after(anotherLaterTime));
@@ -59,21 +50,14 @@ public class TimeTest {
 
 	@Test
 	public void canDetermineIfATimeIsBeforeASpecifiedTime() {
-		Time aEarlierTime = new Time(A_EARLIER_HOUR, A_EARLIER_MINUTE);
-		Time anotherEarlierTime = new Time(A_HOUR, A_EARLIER_MINUTE);
-		Time aLaterTime = new Time(A_LATER_HOUR, A_LATER_MINUTE);
-		Time anotherLaterTime = new Time(A_HOUR, A_LATER_MINUTE);
-
 		assertTrue(time.before(aLaterTime));
 		assertTrue(time.before(anotherLaterTime));
-		assertFalse(time.before(aEarlierTime));
+		assertFalse(time.before(anEarlierTime));
 		assertFalse(time.before(anotherEarlierTime));
 	}
 
 	@Test
 	public void canConvertTimeToString() {
-		Time time = new Time(A_HOUR, A_MINUTE);
-
-		assertEquals(A_HOUR + ":" + A_MINUTE, time.toString());
+		assertEquals(AN_HOUR + ":" + A_MINUTE, time.toString());
 	}
 }

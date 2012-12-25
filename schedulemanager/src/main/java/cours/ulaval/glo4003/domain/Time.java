@@ -50,22 +50,12 @@ public class Time {
 		return false;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj);
-	}
-
 	public Integer getHour() {
 		return hour;
 	}
 
 	public Integer getMinute() {
 		return minute;
-	}
-
-	@Override
-	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 	public void setHour(Integer hour) {
@@ -79,6 +69,16 @@ public class Time {
 	@Override
 	public String toString() {
 		return adjustTime(this.hour + ":" + this.minute);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return EqualsBuilder.reflectionEquals(this, obj);
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 }
