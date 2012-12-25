@@ -10,12 +10,12 @@ import cours.ulaval.glo4003.domain.Offering;
 import cours.ulaval.glo4003.domain.repository.CourseRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLCourseRepository implements CourseRepository {
+public class CourseXMLRepository implements CourseRepository {
 
 	private Map<String, Course> courses = new HashMap<String, Course>();
 	private XMLSerializer<CoursesXMLWrapper> serializer;
 
-	public XMLCourseRepository() throws Exception {
+	public CourseXMLRepository() throws Exception {
 		serializer = new XMLSerializer<CoursesXMLWrapper>(CoursesXMLWrapper.class);
 		parseXML();
 	}
@@ -65,7 +65,7 @@ public class XMLCourseRepository implements CourseRepository {
 	}
 
 	// Do not use : for test purpose only
-	protected XMLCourseRepository(XMLSerializer<CoursesXMLWrapper> serializer) throws Exception {
+	protected CourseXMLRepository(XMLSerializer<CoursesXMLWrapper> serializer) throws Exception {
 		this.serializer = serializer;
 		parseXML();
 	}

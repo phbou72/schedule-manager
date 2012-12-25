@@ -10,12 +10,12 @@ import cours.ulaval.glo4003.domain.Semester;
 import cours.ulaval.glo4003.domain.repository.OfferingRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLOfferingRepository implements OfferingRepository {
+public class OfferingXMLRepository implements OfferingRepository {
 
 	private XMLSerializer<OfferingXMLWrapper> serializer;
 	private Map<String, Offering> offerings = new HashMap<String, Offering>();
 
-	public XMLOfferingRepository() throws Exception {
+	public OfferingXMLRepository() throws Exception {
 		serializer = new XMLSerializer<OfferingXMLWrapper>(OfferingXMLWrapper.class);
 		parseXML();
 	}
@@ -77,7 +77,7 @@ public class XMLOfferingRepository implements OfferingRepository {
 	}
 
 	// DO NOT USE -- for test purpose only
-	protected XMLOfferingRepository(XMLSerializer<OfferingXMLWrapper> mockedSerializer) throws Exception {
+	protected OfferingXMLRepository(XMLSerializer<OfferingXMLWrapper> mockedSerializer) throws Exception {
 		serializer = mockedSerializer;
 	}
 

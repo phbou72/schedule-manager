@@ -9,13 +9,13 @@ import org.junit.Test;
 
 import cours.ulaval.glo4003.domain.ProgramSheet;
 
-public class XMLProgramSheetRepositoryIT extends ITTestBase {
+public class ProgramSheetXMLRepositoryIT extends ITTestBase {
 
-	XMLProgramSheetRepository repository;
+	ProgramSheetXMLRepository repository;
 
 	@Before
 	public void setUp() throws Exception {
-		repository = new XMLProgramSheetRepository();
+		repository = new ProgramSheetXMLRepository();
 	}
 
 	@Test

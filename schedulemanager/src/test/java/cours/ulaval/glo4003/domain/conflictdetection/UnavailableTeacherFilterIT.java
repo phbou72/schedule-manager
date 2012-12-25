@@ -25,7 +25,7 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.DisponibilityConfl
 import cours.ulaval.glo4003.domain.conflictdetection.conflict.UnavailableTeacherConflict;
 import cours.ulaval.glo4003.domain.repository.AvailabilityRepository;
 import cours.ulaval.glo4003.persistence.ITTestBase;
-import cours.ulaval.glo4003.persistence.XMLAvailabilityRepository;
+import cours.ulaval.glo4003.persistence.AvailabilityXMLRepository;
 
 public class UnavailableTeacherFilterIT extends ITTestBase {
 	private static final String JSON_STRING = "{\"monday\":[1,1,1,1,1,1,1,1,2,2,2,2,2],\"tuesday\":[2,2,2,2,2,1,1,1,1,1,0,0,0],\"wednesday\":[2,2,2,1,1,1,1,1,0,0,0,1,1],\"thursday\":[0,0,0,0,0,1,1,1,1,2,2,2,2],\"friday\":[0,0,0,1,1,1,1,1,0,0,0,0,0]}";
@@ -49,7 +49,7 @@ public class UnavailableTeacherFilterIT extends ITTestBase {
 		availabilityModel = mapper.readValue(JSON_STRING, AvailabilityModel.class);
 		availabilities = availabilityModel.toAvailability(A_IDUL);
 
-		availabilityRepository = new XMLAvailabilityRepository();
+		availabilityRepository = new AvailabilityXMLRepository();
 		availabilityRepository.store(availabilities);
 	}
 

@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
-import cours.ulaval.glo4003.persistence.XMLCourseRepository;
-import cours.ulaval.glo4003.persistence.XMLProgramSheetRepository;
+import cours.ulaval.glo4003.persistence.CourseXMLRepository;
+import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
 
 public class SectionTest {
 	private static final int A_HOUR = 10;
@@ -72,7 +72,7 @@ public class SectionTest {
 	public void areSameLevelShouldReturnTrueIfCourseAreSameLevel() {
 		ProgramSheet programSheetMock = mock(ProgramSheet.class);
 		when(programSheetMock.areCoursesSameLevel(anyString(), anyString())).thenReturn(true);
-		XMLProgramSheetRepository repositoryMock = mock(XMLProgramSheetRepository.class);
+		ProgramSheetXMLRepository repositoryMock = mock(ProgramSheetXMLRepository.class);
 		when(repositoryMock.getProgramSheetGLO()).thenReturn(programSheetMock);
 		when(repositoryMock.getProgramSheetIFT()).thenReturn(programSheetMock);
 		section.setProgramSheetRepository(repositoryMock);
@@ -90,7 +90,7 @@ public class SectionTest {
 		when(courseMock.isConcomitting(any(Course.class))).thenReturn(true);
 		Course anotherCourseMock = mock(Course.class);
 		when(anotherCourseMock.isConcomitting(any(Course.class))).thenReturn(false);
-		XMLCourseRepository repositoryMock = mock(XMLCourseRepository.class);
+		CourseXMLRepository repositoryMock = mock(CourseXMLRepository.class);
 		when(repositoryMock.findByAcronym(anyString())).thenReturn(courseMock, anotherCourseMock);
 		section.setCourseRepository(repositoryMock);
 

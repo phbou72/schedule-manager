@@ -24,12 +24,12 @@ import cours.ulaval.glo4003.domain.repository.OfferingRepository;
 import cours.ulaval.glo4003.domain.repository.ProgramSheetRepository;
 import cours.ulaval.glo4003.domain.repository.ScheduleRepository;
 import cours.ulaval.glo4003.domain.repository.UserRepository;
-import cours.ulaval.glo4003.persistence.XMLAvailabilityRepository;
-import cours.ulaval.glo4003.persistence.XMLCourseRepository;
-import cours.ulaval.glo4003.persistence.XMLOfferingRepository;
-import cours.ulaval.glo4003.persistence.XMLProgramSheetRepository;
-import cours.ulaval.glo4003.persistence.XMLScheduleRepository;
-import cours.ulaval.glo4003.persistence.XMLUserRepository;
+import cours.ulaval.glo4003.persistence.AvailabilityXMLRepository;
+import cours.ulaval.glo4003.persistence.CourseXMLRepository;
+import cours.ulaval.glo4003.persistence.OfferingXMLRepository;
+import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
+import cours.ulaval.glo4003.persistence.ScheduleXMLRepository;
+import cours.ulaval.glo4003.persistence.UserXMLRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 import cours.ulaval.glo4003.utils.ResourcesLoader;
 
@@ -38,32 +38,32 @@ public class AppConfig {
 
 	@Bean
 	public CourseRepository courseRepository() throws Exception {
-		return new XMLCourseRepository();
+		return new CourseXMLRepository();
 	}
 
 	@Bean
 	public OfferingRepository offeringRepository() throws Exception {
-		return new XMLOfferingRepository();
+		return new OfferingXMLRepository();
 	}
 
 	@Bean
 	public ScheduleRepository scheduleRepository() throws Exception {
-		return new XMLScheduleRepository();
+		return new ScheduleXMLRepository();
 	}
 
 	@Bean
 	public UserRepository userRepository() throws Exception {
-		return new XMLUserRepository();
+		return new UserXMLRepository();
 	}
 
 	@Bean
 	public AvailabilityRepository availabilityRepository() throws Exception {
-		return new XMLAvailabilityRepository();
+		return new AvailabilityXMLRepository();
 	}
 
 	@Bean
 	public ProgramSheetRepository programSheetRepository() throws Exception {
-		return new XMLProgramSheetRepository();
+		return new ProgramSheetXMLRepository();
 	}
 
 	@Bean

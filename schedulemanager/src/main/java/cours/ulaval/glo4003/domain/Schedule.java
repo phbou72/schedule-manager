@@ -7,7 +7,7 @@ import java.util.Map;
 
 import cours.ulaval.glo4003.domain.conflictdetection.conflict.Conflict;
 import cours.ulaval.glo4003.domain.repository.OfferingRepository;
-import cours.ulaval.glo4003.persistence.XMLOfferingRepository;
+import cours.ulaval.glo4003.persistence.OfferingXMLRepository;
 
 public class Schedule {
 
@@ -154,7 +154,7 @@ public class Schedule {
 
 	private void initializeRepository() {
 		try {
-			offeringRepository = new XMLOfferingRepository();
+			offeringRepository = new OfferingXMLRepository();
 		} catch (Exception e) {
 
 		}

@@ -10,12 +10,12 @@ import cours.ulaval.glo4003.domain.Semester;
 import cours.ulaval.glo4003.domain.repository.ScheduleRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLScheduleRepository implements ScheduleRepository {
+public class ScheduleXMLRepository implements ScheduleRepository {
 
 	private XMLSerializer<ScheduleXMLWrapper> serializer;
 	private Map<String, Schedule> schedules = new HashMap<String, Schedule>();
 
-	public XMLScheduleRepository() throws Exception {
+	public ScheduleXMLRepository() throws Exception {
 		serializer = new XMLSerializer<ScheduleXMLWrapper>(ScheduleXMLWrapper.class);
 		parseXML();
 	}

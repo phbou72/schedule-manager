@@ -4,13 +4,13 @@ import cours.ulaval.glo4003.domain.ProgramSheet;
 import cours.ulaval.glo4003.domain.repository.ProgramSheetRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLProgramSheetRepository implements ProgramSheetRepository {
+public class ProgramSheetXMLRepository implements ProgramSheetRepository {
 
 	private XMLSerializer<ProgramSheetXMLWrapper> serializer;
 	private ProgramSheet programSheetIFT;
 	private ProgramSheet programSheetGLO;
 
-	public XMLProgramSheetRepository() throws Exception {
+	public ProgramSheetXMLRepository() throws Exception {
 		serializer = new XMLSerializer<ProgramSheetXMLWrapper>(ProgramSheetXMLWrapper.class);
 		parseXML();
 	}
@@ -32,7 +32,7 @@ public class XMLProgramSheetRepository implements ProgramSheetRepository {
 	}
 
 	// Do not use : for test purpose only
-	protected XMLProgramSheetRepository(XMLSerializer<ProgramSheetXMLWrapper> serializer) throws Exception {
+	protected ProgramSheetXMLRepository(XMLSerializer<ProgramSheetXMLWrapper> serializer) throws Exception {
 		this.serializer = serializer;
 		parseXML();
 	}

@@ -19,9 +19,9 @@ import cours.ulaval.glo4003.domain.TimeSlot;
 import cours.ulaval.glo4003.domain.TimeSlot.DayOfWeek;
 import cours.ulaval.glo4003.domain.conflictdetection.conflict.ConcomittingCoursesConflict;
 
-public class XMLScheduleRepositoryIT extends ITTestBase {
+public class ScheduleXMLRepositoryIT extends ITTestBase {
 	private static Schedule aSchedule;
-	private static XMLScheduleRepository repository;
+	private static ScheduleXMLRepository repository;
 	private static Schedule anotherSchedule;
 
 	@Before
@@ -46,7 +46,7 @@ public class XMLScheduleRepositoryIT extends ITTestBase {
 		anotherSchedule.setPersonInCharge("Nadir Belkhiter");
 		anotherSchedule.setYear("2012-2013");
 
-		repository = new XMLScheduleRepository();
+		repository = new ScheduleXMLRepository();
 	}
 
 	@After
@@ -58,7 +58,7 @@ public class XMLScheduleRepositoryIT extends ITTestBase {
 	public void canSaveASchedule() throws Exception {
 		repository.store(aSchedule);
 
-		XMLScheduleRepository anotherRepository = new XMLScheduleRepository();
+		ScheduleXMLRepository anotherRepository = new ScheduleXMLRepository();
 		List<Schedule> schedules = anotherRepository.findAll();
 		Schedule detachedSchedule = schedules.get(0);
 
@@ -75,7 +75,7 @@ public class XMLScheduleRepositoryIT extends ITTestBase {
 
 		repository.delete("ID");
 
-		XMLScheduleRepository anotherRepository = new XMLScheduleRepository();
+		ScheduleXMLRepository anotherRepository = new ScheduleXMLRepository();
 		assertFalse(repository.findAll().contains(anotherSchedule));
 		assertFalse(anotherRepository.findAll().contains(anotherSchedule));
 	}
@@ -84,7 +84,7 @@ public class XMLScheduleRepositoryIT extends ITTestBase {
 	public void canFindAllSchedules() throws Exception {
 		repository.store(aSchedule);
 		repository.store(anotherSchedule);
-		XMLScheduleRepository anotherRepository = new XMLScheduleRepository();
+		ScheduleXMLRepository anotherRepository = new ScheduleXMLRepository();
 
 		List<Schedule> schedules = anotherRepository.findAll();
 
@@ -95,7 +95,7 @@ public class XMLScheduleRepositoryIT extends ITTestBase {
 	public void canFindScheduleByYear() throws Exception {
 		repository.store(aSchedule);
 		repository.store(anotherSchedule);
-		XMLScheduleRepository anotherRepository = new XMLScheduleRepository();
+		ScheduleXMLRepository anotherRepository = new ScheduleXMLRepository();
 
 		List<Schedule> schedules = anotherRepository.findBy("2011-2012");
 

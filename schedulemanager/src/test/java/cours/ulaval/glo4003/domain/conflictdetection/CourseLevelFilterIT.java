@@ -20,7 +20,7 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.Conflict;
 import cours.ulaval.glo4003.domain.conflictdetection.conflict.SameLevelCourseConflict;
 import cours.ulaval.glo4003.domain.repository.ProgramSheetRepository;
 import cours.ulaval.glo4003.persistence.ITTestBase;
-import cours.ulaval.glo4003.persistence.XMLProgramSheetRepository;
+import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
 
 public class CourseLevelFilterIT extends ITTestBase {
 	private static final int A_HOUR = 10;
@@ -36,7 +36,7 @@ public class CourseLevelFilterIT extends ITTestBase {
 
 	@Before
 	public void setup() throws Exception {
-		programSheetRepository = new XMLProgramSheetRepository();
+		programSheetRepository = new ProgramSheetXMLRepository();
 
 		glo1901Section = new Section("87134", "A", "a responsable person", Arrays.asList("teacher1", "teacher2"), TeachMode.InCourse,
 				new TimeDedicated(), "GLO-1901", Arrays.asList(new TimeSlot(generateTimeSlotStartTime(), 3, DayOfWeek.MONDAY)), null);

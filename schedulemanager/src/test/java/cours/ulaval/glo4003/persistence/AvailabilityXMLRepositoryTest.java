@@ -11,7 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import cours.ulaval.glo4003.domain.Availability;
 
-public class XMLAvailabilityRepositoryTest {
+public class AvailabilityXMLRepositoryTest {
 
 	private static final String UN_IDUL = "un_idul";
 
@@ -21,7 +21,7 @@ public class XMLAvailabilityRepositoryTest {
 	XMLSerializer<AvailabilityXMLWrapper> serializer;
 
 	@InjectMocks
-	XMLAvailabilityRepository repo;
+	AvailabilityXMLRepository repo;
 
 	@Before
 	public void setUp() {

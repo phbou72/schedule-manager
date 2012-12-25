@@ -16,12 +16,12 @@ import cours.ulaval.glo4003.domain.Offering;
 import cours.ulaval.glo4003.domain.Semester;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLCourseRepositoryTest {
+public class CourseXMLRepositoryTest {
 
 	private static final String AN_ACRONYM = "GLO-4003";
 	private static final Semester A_SEMESTER = Semester.Automne;
 
-	private XMLCourseRepository repository;
+	private CourseXMLRepository repository;
 	private XMLSerializer<CoursesXMLWrapper> mockedSerializer;
 
 	@Before
@@ -31,12 +31,12 @@ public class XMLCourseRepositoryTest {
 		ConfigManager resourcesPaths = ConfigManager.getConfigManager();
 		when(mockedSerializer.deserialize(resourcesPaths.getCoursesFilePath())).thenReturn(dto);
 
-		repository = new XMLCourseRepository(mockedSerializer);
+		repository = new CourseXMLRepository(mockedSerializer);
 	}
 
 	@Test
 	public void canInstantiateCourseRepository() throws Exception {
-		XMLCourseRepository repository = new XMLCourseRepository();
+		CourseXMLRepository repository = new CourseXMLRepository();
 
 		assertNotNull(repository);
 	}

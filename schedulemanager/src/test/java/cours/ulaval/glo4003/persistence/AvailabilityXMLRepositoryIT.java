@@ -9,16 +9,16 @@ import org.junit.Test;
 import cours.ulaval.glo4003.controller.model.AvailabilityModel;
 import cours.ulaval.glo4003.domain.Availability;
 
-public class XMLAvailabilityRepositoryIT extends ITTestBase {
+public class AvailabilityXMLRepositoryIT extends ITTestBase {
 
 	private static final String JSON_STRING = "{\"monday\":[1,1,1,1,1,1,1,1,2,2,2,2,2],\"tuesday\":[2,2,2,2,2,1,1,1,1,1,0,0,0],\"wednesday\":[2,2,2,1,1,1,1,1,0,0,0,1,1],\"thursday\":[0,0,0,0,0,1,1,1,1,2,2,2,2],\"friday\":[0,0,0,1,1,1,1,1,0,0,0,0,0]}";
 
 	private static final String UN_IDUL = "enseignant";
-	private XMLAvailabilityRepository repository;
+	private AvailabilityXMLRepository repository;
 
 	@Before
 	public void setUp() throws Exception {
-		repository = new XMLAvailabilityRepository();
+		repository = new AvailabilityXMLRepository();
 	}
 
 	@Test

@@ -28,9 +28,9 @@ import cours.ulaval.glo4003.domain.repository.AvailabilityRepository;
 import cours.ulaval.glo4003.domain.repository.CourseRepository;
 import cours.ulaval.glo4003.domain.repository.ProgramSheetRepository;
 import cours.ulaval.glo4003.persistence.ITTestBase;
-import cours.ulaval.glo4003.persistence.XMLAvailabilityRepository;
-import cours.ulaval.glo4003.persistence.XMLCourseRepository;
-import cours.ulaval.glo4003.persistence.XMLProgramSheetRepository;
+import cours.ulaval.glo4003.persistence.AvailabilityXMLRepository;
+import cours.ulaval.glo4003.persistence.CourseXMLRepository;
+import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
 
 public class ConflictDetectorIT extends ITTestBase {
 	private static final String JSON_STRING = "{\"monday\":[1,1,1,1,1,1,1,1,2,2,2,2,2],\"tuesday\":[2,2,2,2,2,1,1,1,1,1,0,0,0],\"wednesday\":[2,2,1,1,1,1,1,1,0,0,0,1,1],\"thursday\":[0,0,0,0,0,1,1,1,1,2,2,2,2],\"friday\":[0,0,0,1,1,1,1,1,0,0,0,0,0]}";
@@ -57,7 +57,7 @@ public class ConflictDetectorIT extends ITTestBase {
 
 	@BeforeClass
 	public static void setupClass() throws Exception {
-		availabilityRepository = new XMLAvailabilityRepository();
+		availabilityRepository = new AvailabilityXMLRepository();
 
 		addTeacherAvailability("teacher1");
 		addTeacherAvailability("teacher2");
@@ -96,8 +96,8 @@ public class ConflictDetectorIT extends ITTestBase {
 		Course glo3013 = new Course("GLO-3013", "Génie logiciel orienté derp", 3, "derpinini", Cycle.Premier, new ArrayList<Prerequisite>(),
 				new TimeDedicated(3, 0, 6));
 
-		courseRepository = new XMLCourseRepository();
-		programSheetRepository = new XMLProgramSheetRepository();
+		courseRepository = new CourseXMLRepository();
+		programSheetRepository = new ProgramSheetXMLRepository();
 
 		courseRepository.store(glo2002);
 		courseRepository.store(ift2004);

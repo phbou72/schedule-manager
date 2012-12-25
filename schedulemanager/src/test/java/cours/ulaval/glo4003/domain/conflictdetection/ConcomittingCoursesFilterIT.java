@@ -25,7 +25,7 @@ import cours.ulaval.glo4003.domain.conflictdetection.conflict.ConcomittingCourse
 import cours.ulaval.glo4003.domain.conflictdetection.conflict.Conflict;
 import cours.ulaval.glo4003.domain.repository.CourseRepository;
 import cours.ulaval.glo4003.persistence.ITTestBase;
-import cours.ulaval.glo4003.persistence.XMLCourseRepository;
+import cours.ulaval.glo4003.persistence.CourseXMLRepository;
 
 public class ConcomittingCoursesFilterIT extends ITTestBase {
 	private static final int A_HOUR = 10;
@@ -55,7 +55,7 @@ public class ConcomittingCoursesFilterIT extends ITTestBase {
 		Course ift2002 = new Course("IFT-2002", "Génie logiciel orienté derp", 3, "derpinini", Cycle.Premier, new ArrayList<Prerequisite>(),
 				new TimeDedicated(3, 0, 6));
 
-		courseRepository = new XMLCourseRepository();
+		courseRepository = new CourseXMLRepository();
 
 		courseRepository.store(glo2002);
 		courseRepository.store(ift2004);

@@ -13,15 +13,15 @@ import org.junit.Test;
 import cours.ulaval.glo4003.domain.Offering;
 import cours.ulaval.glo4003.domain.Semester;
 
-public class XMLOfferingRepositoryIT extends ITTestBase {
+public class OfferingXMLRepositoryIT extends ITTestBase {
 
 	private static final String NEW_OFFERING_YEAR = "2009-2010";
 	private static final Semester A_SEMESTER = Semester.Automne;
-	XMLOfferingRepository repository;
+	OfferingXMLRepository repository;
 
 	@Before
 	public void setUp() throws Exception {
-		repository = new XMLOfferingRepository();
+		repository = new OfferingXMLRepository();
 	}
 
 	@After
@@ -64,7 +64,7 @@ public class XMLOfferingRepositoryIT extends ITTestBase {
 
 		repository.store(offering);
 
-		XMLOfferingRepository refreshedRepository = new XMLOfferingRepository();
+		OfferingXMLRepository refreshedRepository = new OfferingXMLRepository();
 
 		List<String> storedOfferingYears = refreshedRepository.findYears();
 		Offering storedOffering = refreshedRepository.find(NEW_OFFERING_YEAR);
@@ -86,14 +86,14 @@ public class XMLOfferingRepositoryIT extends ITTestBase {
 
 		repository.delete("2007-2008", A_SEMESTER);
 
-		XMLOfferingRepository refreshedRepository = new XMLOfferingRepository();
+		OfferingXMLRepository refreshedRepository = new OfferingXMLRepository();
 		List<String> storedOfferingYears = refreshedRepository.findYears();
 		assertFalse(storedOfferingYears.contains("2007-2008"));
 	}
 
 	@AfterClass
 	public static void reset() throws Exception {
-		XMLOfferingRepository repo = new XMLOfferingRepository();
+		OfferingXMLRepository repo = new OfferingXMLRepository();
 		repo.delete(NEW_OFFERING_YEAR, A_SEMESTER);
 		repo.delete(NEW_OFFERING_YEAR);
 	}

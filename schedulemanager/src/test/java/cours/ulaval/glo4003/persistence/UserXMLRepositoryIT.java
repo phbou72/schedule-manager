@@ -8,16 +8,16 @@ import org.junit.Test;
 import cours.ulaval.glo4003.domain.Role;
 import cours.ulaval.glo4003.domain.User;
 
-public class XMLUserRepositoryIT extends ITTestBase {
+public class UserXMLRepositoryIT extends ITTestBase {
 
-	private XMLUserRepository users;
+	private UserXMLRepository users;
 
 	private User teacher;
 	private User director;
 
 	@Before
 	public void setUp() throws Exception {
-		users = new XMLUserRepository();
+		users = new UserXMLRepository();
 
 		teacher = new User("enseignant", "Enseignant", "pass", Role.ROLE_Enseignant);
 		director = new User("directeur", "Directeur", "pass", Role.ROLE_Directeur);

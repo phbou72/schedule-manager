@@ -9,9 +9,9 @@ import org.junit.Test;
 import cours.ulaval.glo4003.domain.ProgramSheet;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLProgramSheetRepositoryTest {
+public class ProgramSheetXMLRepositoryTest {
 
-	private XMLProgramSheetRepository repository;
+	private ProgramSheetXMLRepository repository;
 	private XMLSerializer<ProgramSheetXMLWrapper> mockedSerializer;
 
 	private ProgramSheet programSheetGLO = mock(ProgramSheet.class);
@@ -26,12 +26,12 @@ public class XMLProgramSheetRepositoryTest {
 		ConfigManager resourcesPaths = ConfigManager.getConfigManager();
 		when(mockedSerializer.deserialize(resourcesPaths.getProgramSheetFilePath())).thenReturn(dto);
 
-		repository = new XMLProgramSheetRepository(mockedSerializer);
+		repository = new ProgramSheetXMLRepository(mockedSerializer);
 	}
 
 	@Test
 	public void canInstantiateRepository() throws Exception {
-		XMLProgramSheetRepository repository = new XMLProgramSheetRepository();
+		ProgramSheetXMLRepository repository = new ProgramSheetXMLRepository();
 
 		assertNotNull(repository);
 	}

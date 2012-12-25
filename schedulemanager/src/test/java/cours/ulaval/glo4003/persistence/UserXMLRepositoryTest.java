@@ -13,7 +13,7 @@ import cours.ulaval.glo4003.domain.Notification;
 import cours.ulaval.glo4003.domain.Role;
 import cours.ulaval.glo4003.domain.User;
 
-public class XMLUserRepositoryTest {
+public class UserXMLRepositoryTest {
 
 	private static final String VALID_IDUL = "abcde";
 
@@ -23,7 +23,7 @@ public class XMLUserRepositoryTest {
 	private User user;
 
 	@InjectMocks
-	private XMLUserRepository repository;
+	private UserXMLRepository repository;
 
 	private User teacher;
 	private User director;
@@ -31,7 +31,7 @@ public class XMLUserRepositoryTest {
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		repository = new XMLUserRepository(mockedSerializer);
+		repository = new UserXMLRepository(mockedSerializer);
 		when(user.getIdul()).thenReturn(VALID_IDUL);
 
 		createUsers();

@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations;
 import cours.ulaval.glo4003.domain.Schedule;
 import cours.ulaval.glo4003.domain.Semester;
 
-public class XMLScheduleRepositoryTest {
+public class ScheduleXMLRepositoryTest {
 
 	private static int NB_OF_SCHEDULE = 10;
 	private static String AN_ID = "anId";
@@ -25,7 +25,7 @@ public class XMLScheduleRepositoryTest {
 	@Mock
 	private Schedule mockedSchedule;
 	@InjectMocks
-	private XMLScheduleRepository scheduleRepo;
+	private ScheduleXMLRepository scheduleRepo;
 
 	@Before
 	public void setUp() {

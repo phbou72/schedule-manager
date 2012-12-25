@@ -5,8 +5,8 @@ import java.util.List;
 
 import cours.ulaval.glo4003.domain.repository.CourseRepository;
 import cours.ulaval.glo4003.domain.repository.ProgramSheetRepository;
-import cours.ulaval.glo4003.persistence.XMLCourseRepository;
-import cours.ulaval.glo4003.persistence.XMLProgramSheetRepository;
+import cours.ulaval.glo4003.persistence.CourseXMLRepository;
+import cours.ulaval.glo4003.persistence.ProgramSheetXMLRepository;
 
 public class Section {
 
@@ -190,8 +190,8 @@ public class Section {
 
 	private void initializeRepositories() {
 		try {
-			programSheetRepository = new XMLProgramSheetRepository();
-			courseRepository = new XMLCourseRepository();
+			programSheetRepository = new ProgramSheetXMLRepository();
+			courseRepository = new CourseXMLRepository();
 		} catch (Exception e) {
 
 		}

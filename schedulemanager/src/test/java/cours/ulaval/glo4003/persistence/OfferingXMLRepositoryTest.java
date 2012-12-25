@@ -11,7 +11,7 @@ import org.mockito.MockitoAnnotations;
 import cours.ulaval.glo4003.domain.Offering;
 import cours.ulaval.glo4003.domain.Semester;
 
-public class XMLOfferingRepositoryTest {
+public class OfferingXMLRepositoryTest {
 	private static final String VALID_YEAR = "2011";
 	private static final Semester A_SEMESTER = Semester.Ete;
 
@@ -19,13 +19,13 @@ public class XMLOfferingRepositoryTest {
 	private Offering offering;
 	@Mock
 	private XMLSerializer<OfferingXMLWrapper> mockedSerializer;
-	private XMLOfferingRepository repository;
+	private OfferingXMLRepository repository;
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		when(offering.getYear()).thenReturn(VALID_YEAR);
-		repository = new XMLOfferingRepository(mockedSerializer);
+		repository = new OfferingXMLRepository(mockedSerializer);
 	}
 
 	@Test

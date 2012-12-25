@@ -9,12 +9,12 @@ import cours.ulaval.glo4003.domain.Availability;
 import cours.ulaval.glo4003.domain.repository.AvailabilityRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLAvailabilityRepository implements AvailabilityRepository {
+public class AvailabilityXMLRepository implements AvailabilityRepository {
 
 	private XMLSerializer<AvailabilityXMLWrapper> serializer;
 	private Map<String, Availability> availabilities = new HashMap<String, Availability>();
 
-	public XMLAvailabilityRepository() throws Exception {
+	public AvailabilityXMLRepository() throws Exception {
 		serializer = new XMLSerializer<AvailabilityXMLWrapper>(AvailabilityXMLWrapper.class);
 		parseXML();
 	}

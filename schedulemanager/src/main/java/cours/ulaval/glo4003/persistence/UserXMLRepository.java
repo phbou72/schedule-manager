@@ -11,17 +11,17 @@ import cours.ulaval.glo4003.domain.User;
 import cours.ulaval.glo4003.domain.repository.UserRepository;
 import cours.ulaval.glo4003.utils.ConfigManager;
 
-public class XMLUserRepository implements UserRepository {
+public class UserXMLRepository implements UserRepository {
 
 	private XMLSerializer<UserXMLWrapper> serializer;
 	private Map<String, User> users = new HashMap<String, User>();
 
-	public XMLUserRepository() throws Exception {
+	public UserXMLRepository() throws Exception {
 		serializer = new XMLSerializer<UserXMLWrapper>(UserXMLWrapper.class);
 		parseXML();
 	}
 
-	public XMLUserRepository(XMLSerializer<UserXMLWrapper> serializer) {
+	public UserXMLRepository(XMLSerializer<UserXMLWrapper> serializer) {
 		this.serializer = serializer;
 	}
 

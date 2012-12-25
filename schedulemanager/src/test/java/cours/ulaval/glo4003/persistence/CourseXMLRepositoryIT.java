@@ -15,17 +15,17 @@ import cours.ulaval.glo4003.domain.Prerequisite;
 import cours.ulaval.glo4003.domain.TimeDedicated;
 import cours.ulaval.glo4003.utils.ResourcesLoader;
 
-public class XMLCourseRepositoryIT extends ITTestBase {
+public class CourseXMLRepositoryIT extends ITTestBase {
 
 	private XMLSerializer<CoursesXMLWrapper> serializer;
-	private XMLCourseRepository repository;
+	private CourseXMLRepository repository;
 
 	@Before
 	public void setup() throws Exception {
 		serializer = new XMLSerializer<CoursesXMLWrapper>(CoursesXMLWrapper.class);
 		serializer.setResourcesLoader(new ResourcesLoader());
 
-		repository = new XMLCourseRepository(serializer);
+		repository = new CourseXMLRepository(serializer);
 	}
 
 	@After
