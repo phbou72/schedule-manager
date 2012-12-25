@@ -58,6 +58,14 @@ Dans 'Java > Editor > Save Actions'
   * Cocher 'Perform the selected actions on save'
   * Cocher 'Format source code', select 'Format all lines'
   * Cocher 'Organize imports'
+  * Cocher 'Additional actions'
+    * Configurer les actions : 
+      * Activer 'Remove trailing whitespace'
+      * Activer 'Correct indentation'
+      * Activer 'Use block in if/else/for ... - Always'
+      * Désactiver 'Use modifier final where possible'
+      * Activer 'Remove unused import'
+  * Appliquer les mêmes modifications dans 'Javascript > Save action' lorsque possible
 	
 Dans 'General > Workspace'
   * Text file encoding:
@@ -65,4 +73,15 @@ Dans 'General > Workspace'
 
 Dans 'Java > Code Style > Formatter'
   * Cliquer sur import et sélectionner le fichier Formatter.xml à la racine du projet
+  * Appliquer le même formattage pour 'Javascript'
+
+Dans 'Web' et 'XML' : 
+  * Spécifier l'encodage en UTF-8 pour tous les languages
+  * Spéficier 180 pour le nombre de caractères par ligne
+
+Dans 'Validation' : 
+  * Supprimer les validations non utilisées
+
+Dans 'Maven > Installations' : 
+  * Utiliser maven installé sur l'ordinateur
 
