@@ -119,11 +119,11 @@ function addTeacher(teachmode) {
 	newDiv.setAttribute('class', 'divteacher');
 	$('.teachersDropdown').first().clone().appendTo(newDiv);
 	var a = $('<a/>', {
-	    class : 'btn btn-danger removeTeacher',
+	    "class" : 'btn btn-danger removeTeacher',
 	    onClick : 'removeTeacher("' + teachmode + '")'
 	});
 	var i = $('<i/>', {
-		class : 'icon-minus-sign icon-white'
+		"class" : 'icon-minus-sign icon-white'
 	});
 
 	i.appendTo(a);
