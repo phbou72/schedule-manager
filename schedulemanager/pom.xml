@@ -7,12 +7,14 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.0.6.RELEASE</org.springframework-version>
 		<org.slf4j-version>1.6.1</org.slf4j-version>
 		<maven.tomcat.plugin>2.0</maven.tomcat.plugin>
 		<minify.maven.plugin>1.5.2</minify.maven.plugin>
+		<logback.version>1.0.6</logback.version>
+		<slf4j.version>1.6.6</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -145,15 +147,69 @@
 			<artifactId>jetty-servlets</artifactId>
 			<version>7.6.8.v20121106</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>com.yahoo.platform.yui</groupId>
+            <artifactId>yuicompressor</artifactId>
+            <version>2.4.6</version>
+        </dependency>
 	</dependencies>
-	
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Logging with SLF4J & LogBack -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-core</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-access</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<repositories>
 		<repository>
 			<id>codehaus</id>
 			<url>http://repository.codehaus.org/org/codehaus</url>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -201,42 +257,42 @@
 					</systemProperties>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-            <groupId>com.samaxes.maven</groupId>
-            <artifactId>minify-maven-plugin</artifactId>
-            <version>${minify.maven.plugin}</version>
-            <executions>
-                <execution>
-                    <id>default-minify</id>
-                    <phase>process-resources</phase>
-                    <configuration>
-						<cssSourceIncludes>
-							<cssSourceInclude>**</cssSourceInclude>
-						</cssSourceIncludes>
-						<cssSourceExcludes>
-							<cssSourceExclude>**/*.min.css</cssSourceExclude>
-							<cssSourceExclude>**/bootstrap.css</cssSourceExclude>
-							<cssSourceExclude>**/bootstrap-responsive.css</cssSourceExclude>
-						</cssSourceExcludes>
-						
-						<jsSourceIncludes>
-							<jsSourceInclude>**</jsSourceInclude>
-						</jsSourceIncludes>
-						<jsSourceExcludes>
-							<jsSourceExclude>**/*.min.js</jsSourceExclude>
-						</jsSourceExcludes>
-						
-						<skipMerge>true</skipMerge>
-						<webappSourceDir>${basedir}/src/main/webapp/resources/</webappSourceDir>
-						<webappTargetDir>${basedir}/src/main/webapp/resources/</webappTargetDir>
-					</configuration>
-                    <goals>
-                        <goal>minify</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+				<groupId>com.samaxes.maven</groupId>
+				<artifactId>minify-maven-plugin</artifactId>
+				<version>${minify.maven.plugin}</version>
+				<executions>
+					<execution>
+						<id>default-minify</id>
+						<phase>process-resources</phase>
+						<configuration>
+							<cssSourceIncludes>
+								<cssSourceInclude>**</cssSourceInclude>
+							</cssSourceIncludes>
+							<cssSourceExcludes>
+								<cssSourceExclude>**/*.min.css</cssSourceExclude>
+								<cssSourceExclude>**/bootstrap.css</cssSourceExclude>
+								<cssSourceExclude>**/bootstrap-responsive.css</cssSourceExclude>
+							</cssSourceExcludes>
+
+							<jsSourceIncludes>
+								<jsSourceInclude>**</jsSourceInclude>
+							</jsSourceIncludes>
+							<jsSourceExcludes>
+								<jsSourceExclude>**/*.min.js</jsSourceExclude>
+							</jsSourceExcludes>
+
+							<skipMerge>true</skipMerge>
+							<webappSourceDir>${basedir}/src/main/webapp/resources/</webappSourceDir>
+							<webappTargetDir>${basedir}/src/main/webapp/resources/</webappTargetDir>
+						</configuration>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
