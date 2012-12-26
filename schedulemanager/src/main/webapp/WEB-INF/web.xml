@@ -89,8 +89,32 @@
 
 	<filter-mapping>
 		<filter-name>yuiMinFilter</filter-name>
-		<url-pattern>*.js</url-pattern>
 		<url-pattern>*.json</url-pattern>
 		<url-pattern>*.css</url-pattern>
 	</filter-mapping>
+
+	<servlet>
+		<servlet-name>JSCSSMergeServlet</servlet-name>
+		<servlet-class>com.googlecode.webutilities.servlets.JSCSSMergeServlet</servlet-class>
+		<!-- This init param is optional and default value is minutes for 7 days in future. -->
+		<init-param>
+			<param-name>expiresMinutes</param-name>
+			<param-value>43200</param-value> <!-- for 30 days -->
+		</init-param>
+		<!-- This init param is also optional and default value is "public". -->
+		<init-param>
+			<param-name>cacheControl</param-name>
+			<param-value>public</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JSCSSMergeServlet</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.json</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
 </web-app>
