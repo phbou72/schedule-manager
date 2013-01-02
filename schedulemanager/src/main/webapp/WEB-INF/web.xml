@@ -1,4 +1,4 @@
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+﻿<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 	<display-name>Schedule Manager</display-name>
 
@@ -38,6 +38,36 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	
+	<!-- ATTENTION, L'ORDRE DES FILTRES SUIVANTS EST IMPORTANT -->
+	
+	<!-- Plugin pour ajouter des header expires aux fichiers js et css--> 
+	<servlet>
+		<servlet-name>JSCSSMergeServlet</servlet-name>
+		<servlet-class>com.googlecode.webutilities.servlets.JSCSSMergeServlet</servlet-class>
+		<!-- This init param is optional and default value is minutes for 7 days in future. -->
+		<init-param>
+			<param-name>expiresMinutes</param-name>
+			<param-value>43200</param-value> <!-- for 30 days -->
+		</init-param>
+		<!-- This init param is also optional and default value is "public". -->
+		<init-param>
+			<param-name>cacheControl</param-name>
+			<param-value>public</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JSCSSMergeServlet</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.json</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Plugin pour GZiper tous les fichiers text-->
 	<filter>
 		<filter-name>compressionFilter</filter-name>
 		<filter-class>com.googlecode.webutilities.filters.CompressionFilter</filter-class>
@@ -63,8 +93,8 @@
 		<filter-name>compressionFilter</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
-
-
+	
+	<!-- Plugin pour mettre en cache tous les fichiers css et js minifier-->
 	<filter>
 		<filter-name>responseCacheFilter</filter-name>
 		<filter-class>com.googlecode.webutilities.filters.ResponseCacheFilter</filter-class>
@@ -76,7 +106,8 @@
 		<url-pattern>*.json</url-pattern>
 		<url-pattern>*.css</url-pattern>
 	</filter-mapping>
-
+	
+	<!-- Plugin pour minifier tous les fichiers css -->
 	<filter>
 		<filter-name>yuiMinFilter</filter-name>
 		<filter-class>com.googlecode.webutilities.filters.YUIMinFilter</filter-class>
@@ -91,30 +122,6 @@
 		<filter-name>yuiMinFilter</filter-name>
 		<url-pattern>*.json</url-pattern>
 		<url-pattern>*.css</url-pattern>
-	</filter-mapping>
-
-	<servlet>
-		<servlet-name>JSCSSMergeServlet</servlet-name>
-		<servlet-class>com.googlecode.webutilities.servlets.JSCSSMergeServlet</servlet-class>
-		<!-- This init param is optional and default value is minutes for 7 days in future. -->
-		<init-param>
-			<param-name>expiresMinutes</param-name>
-			<param-value>43200</param-value> <!-- for 30 days -->
-		</init-param>
-		<!-- This init param is also optional and default value is "public". -->
-		<init-param>
-			<param-name>cacheControl</param-name>
-			<param-value>public</param-value>
-		</init-param>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>JSCSSMergeServlet</servlet-name>
 		<url-pattern>*.js</url-pattern>
-		<url-pattern>*.json</url-pattern>
-		<url-pattern>*.css</url-pattern>
-		<url-pattern>*.png</url-pattern>
-		<url-pattern>*.jpg</url-pattern>
-		<url-pattern>*.gif</url-pattern>
-	</servlet-mapping>
-</web-app>
+	</filter-mapping>
+	</web-app>
