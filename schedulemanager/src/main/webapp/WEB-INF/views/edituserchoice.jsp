@@ -7,10 +7,10 @@
 	<meta charset="utf-8">
 	<title>Schedule Manager</title>
 	<c:import url="common.jsp"></c:import>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+	<link rel="stylesheet" href='<c:url value="/resources/css/jquery-ui.css" />'" />
 	<link href="<c:url value="/resources/css/createuser.css" />" rel="stylesheet">
 	<script type="text/javascript" src="<c:url value="/resources/js/edituser.js" />" /></script>
-	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </head>
 <body>
 	<c:import url="header.jsp" />

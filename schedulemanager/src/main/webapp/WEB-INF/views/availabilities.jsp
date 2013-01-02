@@ -9,8 +9,8 @@
 <title>Schedule Manager</title>
 <c:import url="common.jsp"></c:import>
 
-<link rel="stylesheet" href="<c:url value="/resources/css/availibilities.css" />">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/availibilities.css" />" />
+<link rel="stylesheet" href="<c:url value="/resources/css/jquery-ui.css" />" />
 
 <script type="text/javascript">
 	var json = ${availabilitiesJSON};

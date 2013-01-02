@@ -18,16 +18,17 @@
 					<br />
 					<h3>- ${title}</h3>
 				</div>
-				<h3 style="display: inline;">Cycle : &nbsp;</h3>
-				<a class="btn btn-large btn-primary disabled">${cycle}</a>
+				<h3>Cycle : <a class="btn btn-large btn-primary disabled">${cycle}</a></h3>
+				
 				<h3>Description :</h3>
-				<div class="span12">${description}</div>
+				<p>${description}</p>
+				
 				<h3>Préalables :</h3>
 				<c:url var="courseurl" value="/course/"></c:url>
 				<c:set var="count" value="0" scope="page" />
 				<c:set var="courseCount" value="0" scope="page" />
 				<c:forEach var="prerequisite" items="${prerequisites}">
-					<div class="span12">
+					<p>
 						<c:set var="acronyms" value="${prerequisite.acronyms}" />
 						<c:set var="count" value="${count + 1}" scope="page" />
 						<h4 class="inline">(</h4>
@@ -47,20 +48,13 @@
 						<c:if test="${count != fn:length(prerequisites)}">
 							<h4 class="text-success">&nbsp;ET</h4>
 						</c:if>
-					</div>
+					</p>
 				</c:forEach>
+				
 				<h3>Temps consacré :</h3>
-				<div class="span8 controls">
-					<div id="hour_group">
-						<label class="control-label">Heures en classe :</label> <input type="text" disabled class="input-small" value="${timeInClass}">
-					</div>
-					<div id="hour_group">
-						<label class="control-label" for="hours_labo">Heures en labo/travail dirigé : </label> <input type="text" disabled class="input-small" value="${timeInLab}">
-					</div>
-					<div id="hour_group">
-						<label class="control-label" for="hours_home">Heures de travail personnel : </label> <input type="text" disabled class="input-small" value="${timeAtHome}">
-					</div>
-				</div>
+				<label class="control-label">Heures en classe :</label> <input type="text" disabled="disabled" class="input-small" value="${timeInClass}" />
+				<label class="control-label" for="hours_labo">Heures en labo/travail dirigé : </label> <input type="text" disabled="disabled" class="input-small" value="${timeInLab}" />
+				<label class="control-label" for="hours_home">Heures de travail personnel : </label> <input type="text" disabled="disabled" class="input-small" value="${timeAtHome}" />
 			</div>
 		</div>
 	</div>
