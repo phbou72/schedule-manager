@@ -5,14 +5,10 @@
 <head>
 <meta charset="utf-8">
 <title>Schedule Manager</title>
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/app.css" />" rel="stylesheet">
+<c:import url="common.jsp"></c:import>
 <link href="<c:url value="/resources/css/addsection.css" />" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/app.js" />" /></script>
 <script type="text/javascript" src="<c:url value="/resources/js/addsection.js" />" /></script>
 <script type="text/javascript" src="<c:url value="/resources/js/editsection.js" />" /></script>
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" /></script>
 </head>
 <body>
 	<c:import url="header.jsp" />

@@ -4,32 +4,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<title>Schedule Manager</title>
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/app.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/menu.css" />" rel="stylesheet">
-<link href='<c:url value="/resources/css/calendar.css" />' rel="stylesheet" />
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
-
-<script type="text/javascript">
-	var schedule = ${schedule};
-</script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/app.js" />" /></script>
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" /></script>
-<script type="text/javascript" src="<c:url value="/resources/js/calendar.js" />" /></script>
-<sec:authorize access="hasAnyRole('ROLE_Responsable')">
-	<script type="text/javascript" src="<c:url value="/resources/js/calendaradmin.js" />" /></script>
-</sec:authorize>
-<sec:authorize access="!hasRole('ROLE_Responsable')">
-	<style>
-.event,.event-name {
-	cursor: default;
-}
-</style>
-</sec:authorize>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Schedule Manager</title>
+	
+	<c:import url="common.jsp"></c:import>
+	
+	<link href="<c:url value="/resources/css/menu.css" />" rel="stylesheet">
+	<link href='<c:url value="/resources/css/calendar.css" />' rel="stylesheet" />
+	<link rel="stylesheet" href='<c:url value="/resources/css/jquery-ui.css" />'" />
+	
+	<script type="text/javascript">
+		var schedule = ${schedule};
+	</script>
+	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/calendar.js" />" /></script>
+	
+	<sec:authorize access="hasAnyRole('ROLE_Responsable')">
+		<script type="text/javascript" src="<c:url value="/resources/js/calendaradmin.js" />" /></script>
+	</sec:authorize>
+	<sec:authorize access="!hasRole('ROLE_Responsable')">
+		<style>
+		.event,.event-name {
+			cursor: default;
+		}
+		</style>
+	</sec:authorize>
 </head>
 <body>
 	<c:import url="header.jsp" />

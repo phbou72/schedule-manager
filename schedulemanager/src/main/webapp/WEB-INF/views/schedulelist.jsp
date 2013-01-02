@@ -8,15 +8,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Schedule Manager</title>
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/app.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/schedulelist.css" />" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/app.js" />" /></script>
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />" /></script>
-<script type="text/javascript" src="<c:url value="/resources/js/schedule.js" />" /></script>
+	<meta charset="utf-8">
+	<title>Schedule Manager</title>
+	<c:import url="common.jsp"></c:import>
+	<link href="<c:url value="/resources/css/schedulelist.css" />" rel="stylesheet">
+	<script type="text/javascript" src="<c:url value="/resources/js/schedule.js" />" /></script>
 </head>
 <body>
 	<c:import url="header.jsp" />
